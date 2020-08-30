@@ -36,3 +36,5 @@ This is the backend for the Solo React project.
 8. Add environment variables on the heroku environment using the Heroku dashboard. (Setting Heroku Config Vars)[https://devcenter.heroku.com/articles/config-vars]
 
 9. profit
+
+https://safe-refuge-49550.herokuapp.com/
