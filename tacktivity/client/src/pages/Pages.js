@@ -8,7 +8,7 @@ export default function Pages() {
   return (
     <>
       <Route path='/' component={UnauthedHome}></Route>
-      {/* <Route path='/' component={AuthedHome}></Route> */}
+      <Route path='/#' component={AuthedHome}></Route>
     </>
   )
 }

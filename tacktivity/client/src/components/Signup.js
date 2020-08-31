@@ -6,15 +6,16 @@ import { Redirect } from 'react-router-dom';
 function Signup() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [age, setAge] = useState('');
   const currentUserId = useSelector(state => state.auth.id);
   const dispatch = useDispatch();
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(signup(email.toLocaleLowerCase(), password));
+    dispatch(signup(email.toLocaleLowerCase(), password, age));
   }
 
-  if (currentUserId) return <Redirect to='/' />
+  if (currentUserId) return <Redirect to='/#' />
 
   return (
     <>
@@ -22,8 +23,9 @@ function Signup() {
       <form onSubmit={handleSubmit}>
         <input type='text' name='email' value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} />
         <input type='password' name='password' value={password} placeholder='Password' onChange={e => setPassword(e.target.value)} />
+        <input type='number' name='age' value={age} placeholder='Age' onChange={e => setAge(e.target.value)} />
         <p>Forgot your password?</p>
-        <button type='submit'>Log in</button>
+        <button type='submit'>Continue</button>
       </form>
     </>
   )

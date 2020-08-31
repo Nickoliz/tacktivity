@@ -90,7 +90,8 @@ module.exports = (sequelize, DataTypes) => {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
       email,
-      hashedPassword
+      hashedPassword,
+      age
     });
     return await User.scope("currentUser").findByPk(user.id);
   };

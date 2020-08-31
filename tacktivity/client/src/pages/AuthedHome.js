@@ -1,12 +1,12 @@
 import React from 'react';
 
-function UnauthedHome() {
+function AuthedHome() {
   return (
     <>
-      <h1>Hello. Need an idea?</h1>
+      <h1>Hello, Unauthed Home. Need an idea?</h1>
     </>
   )
 }
 
 
-export default UnauthedHome;
+export default AuthedHome;

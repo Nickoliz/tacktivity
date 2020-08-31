@@ -28,8 +28,6 @@ const validateSignup = [
   check("hashedPassword", "Must be 6 or more characters.")
     .exists()
     .isLength({ min: 6, max: 70 }),
-  check('confirmPassword', 'must have the same value as the password field')
-    .custom((value, { req }) => value === req.body.password)
 ];
 
 const router = express.Router();
@@ -39,23 +37,18 @@ router.get('/', asyncHandler(async function (_req, res, _next) {
   res.json({ users });
 }));
 
-router.post(
-  "/",
-  validateSignup,
-  handleValidationErrors,
-  asyncHandler(async function (req, res) {
-    const user = await User.signup(req.body);
+router.post("/", validateSignup, handleValidationErrors, asyncHandler(async function (req, res) {
+  const user = await User.signup(req.body);
 
-    const token = await generateToken(user);
-    res.cookie("token", token, {
-      maxAge: expiresIn * 1000, // maxAge in milliseconds
-      httpOnly: true,
-      secure: process.env.NODE_ENV === "production",
-    });
-    return res.json({
-      user,
-    });
-  })
-);
+  const token = await generateToken(user);
+  res.cookie("token", token, {
+    maxAge: expiresIn * 1000, // maxAge in milliseconds
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+  });
+  return res.json({
+    user,
+  });
+}));
 
 module.exports = router;
