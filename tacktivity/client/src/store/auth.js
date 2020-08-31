@@ -22,13 +22,18 @@ export const login = (email, password) => {
     })
     res.data = await res.json();
     if (res.ok) {
-      dispatch(setUser(res.data));
+      dispatch(setUser(res.data.user));
     }
     return res;
   };
 };
 
-
-export default function reducer() {
-
+export default function authReducer(state = {}, action) {
+  Object.freeze(state);
+  switch (action.type) {
+    case SET_USER:
+      return action.user;
+    default:
+      return state;
+  }
 }
