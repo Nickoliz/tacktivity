@@ -12,7 +12,7 @@ const { jwtConfig: { expiresIn } } = require('../../config');
 const router = express.Router();
 
 const validateLogin = [
-  check("username").exists(),
+  check("email").exists(),
   check("password").exists(),
 ];
 
@@ -41,8 +41,9 @@ router.put("/", validateLogin, handleValidationErrors, asyncHandler(async functi
       user,
     });
   }
-  return next(new Error('Invalid credentials'));
-})
-);
+  const err = new Error('Invalid credentials');
+  err.status = 422;
+  return next(err);
+}));
 
 module.exports = router;
