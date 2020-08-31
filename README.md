@@ -1,2 +1,9 @@
-# tacktivity
-Full stack web app cloning Pinterest using Node.js, Express.js, React, Redux, CSS, HTML, and various other technologies.
+# Tacktivity
+Explore, connect, and enjoy activities we all love to call hobbies.
+
+This site was created with SQL (Postgres), Javascript, Express.js, React, and Redux.
+
+*User can:*
+- Explore photos for inspiration
+- Tack their photos to their Tack Board to start a collection of Tacks
+- Create Tack Boards to organize their Tacks based on...well...whatever they want!
