@@ -22,6 +22,9 @@ const validateSignup = [
   check("lastName", "Must provide your last name.")
     .exists()
     .isLength({ min: 2, max: 100 }),
+  check("age", "Must provide your age for protection.")
+    .exists()
+    .isNumeric(),
   check("hashedPassword", "Must be 6 or more characters.")
     .exists()
     .isLength({ min: 6, max: 70 }),

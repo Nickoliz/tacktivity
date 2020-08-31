@@ -28,6 +28,10 @@ module.exports = (sequelize, DataTypes) => {
           len: [1, 50],
         },
       },
+      age: {
+        allowNull: false,
+        type: DataTypes.INTEGER
+      },
       hashedPassword: {
         allowNull: false,
         type: DataTypes.STRING.BINARY,
