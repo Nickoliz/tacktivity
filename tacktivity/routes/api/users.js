@@ -11,12 +11,18 @@ const {
 
 
 const validateSignup = [
-  check("username", "must be between 5 and 70 characters")
+  check("username", "must be between 5 and 70 characters.")
     .isLength({ min: 5, max: 70 }),
-  check("email", "must be a valid email")
+  check("email", "Must be a valid email.")
     .exists()
     .isEmail(),
-  check("password", "must be 6 or more characters")
+  check("firstName", "Must provide your first name.")
+    .exists()
+    .isLength({ min: 2, max: 50 }),
+  check("lastName", "Must provide your last name.")
+    .exists()
+    .isLength({ min: 2, max: 100 }),
+  check("hashedPassword", "Must be 6 or more characters.")
     .exists()
     .isLength({ min: 6, max: 70 }),
   check('confirmPassword', 'must have the same value as the password field')
