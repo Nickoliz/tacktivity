@@ -59,17 +59,15 @@ module.exports = (sequelize, DataTypes) => {
   User.prototype.toSafeObject = function () {
     const {
       id,
-      username
+      email
     } = this;
 
-    return { id, username };
+    return { id, email };
   };
 
-  User.login = async function ({ username, password }) {
+  User.login = async function ({ email, password }) {
     const user = await User.scope('loginUser').findOne({
-      where: {
-        [Op.or]: [{ username }, { email: username }],
-      },
+      where: { email },
     });
     if (user && user.validatePassword(password)) {
       return await User.scope('currentUser').findByPk(user.id);
@@ -84,10 +82,9 @@ module.exports = (sequelize, DataTypes) => {
     return await User.scope("currentUser").findByPk(id);
   };
 
-  User.signup = async function ({ username, email, password }) {
+  User.signup = async function ({ email, password }) {
     const hashedPassword = bcrypt.hashSync(password);
     const user = await User.create({
-      username,
       email,
       hashedPassword
     });
