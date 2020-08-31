@@ -3,6 +3,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import { CssBaseline } from '@material-ui/core';
 import { Provider } from 'react-redux';
 import configureStore from './store/configureStore';
+import Pages from './pages/Pages';
 
 const store = configureStore();
 if (process.env.NODE_ENV !== 'production') {
@@ -31,9 +32,7 @@ function App() {
       <CssBaseline />
       <BrowserRouter>
         <Provider store={store}>
-          <Route path="/">
-            <h1>My Home Page</h1>
-          </Route>
+          <Pages />
         </Provider>
       </BrowserRouter>
     </>
