@@ -1,0 +1,39 @@
+.container {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  box-sizing: border-box;
+  flex-flow: row;
+  position: relative;
+  height: 80px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.container-login-button {
+  box-sizing: border-box;
+  min-width: 60px;
+  min-height: 40px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  display: block;
+  padding: 8px 12px;
+  transition: transform 85ms ease-out;
+  background-color: #e60023;
+  color: white;
+  font-weight: 700;
+  border-radius: 24px;
+  line-height: normal;
+  font-size: 16px;
+  border: none;
+  align-content: right;
+}
+
+.container-login-button:active {
+  transform: scale(.9457)
+}

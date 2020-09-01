@@ -28,6 +28,24 @@ export const login = (email, password) => {
   };
 };
 
+export const signup = (email, password) => {
+  return async dispatch => {
+    const res = await fetch('/api/users', {
+      method: 'post',
+      headers: {
+        "Content-Type": "application/json",
+        "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+      },
+      body: JSON.stringify({ email, password }),
+    })
+    res.data = await res.json();
+    if (res.ok) {
+      dispatch(setUser(res.data.user));
+    }
+    return res;
+  };
+};
+
 export default function authReducer(state = {}, action) {
   Object.freeze(state);
   switch (action.type) {
