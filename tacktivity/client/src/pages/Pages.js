@@ -9,7 +9,7 @@ export default function Pages() {
     <>
       <Switch>
         <Route exact path='/' component={UnauthedHome}></Route>
-        <Route exact path='/home' component={AuthedHome}></Route>
+        <Route path='/home' component={AuthedHome}></Route>
       </Switch>
     </>
   )

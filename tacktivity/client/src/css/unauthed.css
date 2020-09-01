@@ -21,6 +21,10 @@
   width: 100%;
 }
 
+.fa-thumbtack {
+  padding-left: 20px;
+}
+
 .logo {
   font-size: 20px;
   font-weight: bold;
