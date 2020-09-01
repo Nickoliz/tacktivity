@@ -3,13 +3,14 @@
 import React, { useState, useEffect } from 'react';
 import '../css/unauthedNav.css';
 import Login from '../components/Login';
+import Signup from '../components/Signup';
 
 function UnauthedNavbar() {
-  const [modal, setModal] = useState(false);
+  const [displayModal, setModal] = useState(false);
 
-  useEffect(() => {
-
-  }, [Login]);
+  const toggleModal = () => {
+    setModal(!showModal);
+  }
 
   return (
     <>
@@ -19,15 +20,16 @@ function UnauthedNavbar() {
           <span className="logo">
             <p>Tacktivity</p>
           </span>
-          <button className="container-login-button" type='text' onClick={e => setModal(true)}>
+          <button className="container-login-button" type='text' onClick={e => setLoginModal(true)}>
             Log in
         </button>
-          <button className='container-login-button' type='text'>
+          <button className='container-login-button' type='text' onClick={e => setSignupModal(true)}>
             Sign up
         </button>
         </div>
       </div>
       <Login />
+      <Signup />
     </>
   )
 }
