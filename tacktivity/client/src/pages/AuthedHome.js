@@ -1,9 +1,11 @@
 import React from 'react';
 
+import Authed from '../components/Authed';
+
 function AuthedHome() {
   return (
     <>
-      <h1>Hello, Unauthed Home. Need an idea?</h1>
+      <Authed />
     </>
   )
 }

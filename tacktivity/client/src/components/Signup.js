@@ -19,14 +19,25 @@ function Signup() {
 
   return (
     <>
-      <h2>Signup Form Test</h2>
-      <form onSubmit={handleSubmit}>
-        <input type='text' name='email' value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} />
-        <input type='password' name='password' value={password} placeholder='Password' onChange={e => setPassword(e.target.value)} />
-        <input type='number' name='age' value={age} placeholder='Age' onChange={e => setAge(e.target.value)} />
-        <p>Forgot your password?</p>
-        <button type='submit'>Continue</button>
-      </form>
+      <div className="login-container">
+        <i className="login-thumbtack" class='fas fa-thumbtack fa-3x' />
+        <h3>Welcome to Tacktivity</h3>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <input type='email' className='login-input' name='email' value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} />
+          </div>
+          <div>
+            <input type='password' className='login-input' name='password' value={password} placeholder='Password' onChange={e => setPassword(e.target.value)} />
+          </div>
+          <input type='text' className='login-input' name='age' value={age} placeholder='Age' onChange={e => setAge(e.target.value)} />
+          <div>
+            <button type='submit' className='login-button'>Continue</button>
+          </div>
+        </form>
+        <div className='signup-redirect'>
+          Already a member? Log in
+        </div>
+      </div>
     </>
   )
 }
