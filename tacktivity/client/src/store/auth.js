@@ -2,7 +2,7 @@
 import Cookies from 'js-cookie';
 
 const SET_USER = 'auth/SET_USER';
-const CREATE_USER = 'auth/CREATE_USER';
+const CREATE_USER = 'users/CREATE_USER';
 
 export const setUser = user => {
   return {
@@ -36,7 +36,7 @@ export const login = (email, password) => {
   };
 };
 
-export const signup = (email, password) => {
+export const signup = (email, password, age) => {
   return async dispatch => {
     const res = await fetch('/api/users', {
       method: 'post',
@@ -44,11 +44,11 @@ export const signup = (email, password) => {
         "Content-Type": "application/json",
         "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
       },
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify({ email, password, age }),
     })
     res.data = await res.json();
     if (res.ok) {
-      dispatch(setUser(res.data.user));
+      dispatch(createUser(res.data.user));
     }
     return res;
   };

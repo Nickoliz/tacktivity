@@ -12,15 +12,15 @@ function Signup() {
 
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(signup(email.toLocaleLowerCase(), password, age));
+    dispatch(signup(email.toLowerCase(), password, age));
   }
 
-  if (currentUserId) return <Redirect to='/#' />
+  if (currentUserId) return <Redirect to='/home' />
 
   return (
     <>
       <div className="login-container">
-        <i className="login-thumbtack" class='fas fa-thumbtack fa-3x' />
+        <i class='fas fa-thumbtack fa-3x' />
         <h3>Welcome to Tacktivity</h3>
         <form onSubmit={handleSubmit}>
           <div>
