@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/auth';
 import { Redirect } from 'react-router-dom';
+import '../css/login.css'
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -18,13 +19,25 @@ function Login() {
 
   return (
     <>
-      <h2>Login Form Test</h2>
-      <form onSubmit={handleSubmit}>
-        <input type='text' name='email' value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} />
-        <input type='password' name='password' value={password} placeholder='Password' onChange={e => setPassword(e.target.value)} />
-        <p>Forgot your password?</p>
-        <button type='submit'>Log in</button>
-      </form>
+      <div className="login-container">
+        <i className="login-thumbtack" class='fas fa-thumbtack fa-3x' />
+        <h3>Welcome to Tacktivity</h3>
+        <form onSubmit={handleSubmit}>
+          <div>
+            <input type='email' className='login-input' name='email' value={email} placeholder="Email" onChange={e => setEmail(e.target.value)} />
+          </div>
+          <div>
+            <input type='password' className='login-input' name='password' value={password} placeholder='Password' onChange={e => setPassword(e.target.value)} />
+          </div>
+          <div>
+            <button type='submit' className='login-button'>Log in</button>
+          </div>
+        </form>
+      <div className='form-break'/>
+      <div className='signup-redirect'>
+        Not on Tacktivity yet? Sign up
+      </div>
+      </div>
     </>
   )
 }
