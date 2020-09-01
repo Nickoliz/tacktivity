@@ -48,6 +48,7 @@ export const signup = (email, password, age) => {
     })
     res.data = await res.json();
     if (res.ok) {
+      dispatch(setUser(res.data.user));
       dispatch(createUser(res.data.user));
     }
     return res;
