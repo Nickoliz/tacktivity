@@ -78,3 +78,19 @@ h3 {
   font-size: 12px;
   font-weight: bold;
 }
+
+.login-hidden {
+  display: none;
+}
+
+.login-show {
+  display: block;
+}
+
+.signup-hidden {
+  display: none;
+}
+
+.signup-show {
+  display: block;
+}

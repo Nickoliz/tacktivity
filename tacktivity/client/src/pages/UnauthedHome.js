@@ -1,11 +1,11 @@
 import React from 'react';
 
-import UnauthedNav from '../components/UnauthedNav';
+import Unauthed from '../components/Unauthed';
 
 function UnauthedHome() {
   return (
     <>
-      <UnauthedNav />
+      <Unauthed />
       {/* <h1>Hello. Need an idea?</h1> */}
     </>
   )
