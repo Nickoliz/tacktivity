@@ -153,6 +153,10 @@ h3 {
   z-index: 1010;
 }
 
+.fa-times:hover {
+  background-color: rgba(0,0,0,.1);
+}
+
 .fa-times:active {
   transform: scale(.8)
 }

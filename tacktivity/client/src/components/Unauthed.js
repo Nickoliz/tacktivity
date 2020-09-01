@@ -41,7 +41,7 @@ function Unauthed() {
       </div>
       {!!displayModal && (
         <div className='overlay'>
-          <button className='fas fa-times fa-2x' onClick={hideModal}></button>
+          <button className='fas fa-times fa-lg' onClick={hideModal}></button>
           {displayModal}
         </div>
       )}
