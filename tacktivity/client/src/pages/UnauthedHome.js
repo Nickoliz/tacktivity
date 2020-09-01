@@ -6,7 +6,6 @@ function UnauthedHome() {
   return (
     <>
       <Unauthed />
-      {/* <h1>Hello. Need an idea?</h1> */}
     </>
   )
 }

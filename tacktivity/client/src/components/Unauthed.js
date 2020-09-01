@@ -1,6 +1,6 @@
 // Signup and Login Buttons - remember Material
 // Logo and all
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../css/unauthed.css';
 import '../css/login.css'
 import Login from './Login';
@@ -12,7 +12,7 @@ function Unauthed() {
 
   const showModal = type => {
     if (type === 'login') {
-      setDisplayModal(<Login />);
+      setDisplayModal(<Login hide={hideModal} />);
     } else if (type === 'signup') {
       setDisplayModal(<Signup />);
     }
@@ -24,12 +24,13 @@ function Unauthed() {
 
   return (
     <>
-      <div>
+      <div className='unauthed-background'>
         <div className="container">
-          <i class="fas fa-thumbtack fa-2x" />
+          <i className="fas fa-thumbtack fa-2x" />
           <span className="logo">
             <p>Tacktivity</p>
           </span>
+          <div className="nav-space"></div>
           <button className="container-button" type='text' onClick={e => showModal('login')}>
             Log in
           </button>
@@ -39,12 +40,8 @@ function Unauthed() {
         </div>
       </div>
       {!!displayModal && (
-        <div>
-          <div >
-            <button onClick={hideModal}>
-            x
-            </button>
-          </div>
+        <div className='overlay'>
+          <button className='fas fa-times fa-2x' onClick={hideModal}></button>
           {displayModal}
         </div>
       )}

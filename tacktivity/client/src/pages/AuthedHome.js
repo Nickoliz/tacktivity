@@ -1,12 +1,14 @@
 import React from 'react';
 
-function UnauthedHome() {
+import Authed from '../components/Authed';
+
+function AuthedHome() {
   return (
     <>
-      <h1>Hello. Need an idea?</h1>
+      <Authed />
     </>
   )
 }
 
 
-export default UnauthedHome;
+export default AuthedHome;
