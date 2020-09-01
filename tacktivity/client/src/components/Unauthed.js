@@ -5,7 +5,6 @@ import '../css/unauthed.css';
 import '../css/login.css'
 import Login from './Login';
 import Signup from './Signup';
-import AuthModal from './AuthModal';
 
 function Unauthed() {
   const [displayModal, setDisplayModal] = useState(null);
