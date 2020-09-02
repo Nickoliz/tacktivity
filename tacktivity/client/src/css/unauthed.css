@@ -1,7 +1,8 @@
 .unauthed-background {
   position: fixed;
   background-image: url("../images/temp-bkgrnd.png");
-  background-size: contain;
+  /* background-position: center;
+  background-repeat: no-repeat; */
   padding: 0;
   margin: 0;
   top: 0;
