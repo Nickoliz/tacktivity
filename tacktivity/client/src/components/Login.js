@@ -34,9 +34,9 @@ function Login() {
             </div>
           </form>
           <div className='form-break' />
-          <div className='signup-redirect' >
+          <div className='signup-redirect'>
             Not on Tacktivity yet? Sign up
-        </div>
+          </div>
         </div>
       </div>
     </>
