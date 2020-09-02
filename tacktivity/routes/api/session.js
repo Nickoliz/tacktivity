@@ -12,8 +12,8 @@ const { jwtConfig: { expiresIn } } = require('../../config');
 const router = express.Router();
 
 const validateLogin = [
-  check("email").exists(),
-  check("password").exists(),
+  check("email", "Oi! You missed a spot! Gonna need your email.").exists(),
+  check("password", "What's the password?").exists(),
 ];
 
 // Get current user - if there is a user return is a json format the user object
