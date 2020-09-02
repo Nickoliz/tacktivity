@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signup } from '../store/auth';
 import { Redirect } from 'react-router-dom';
 
-function Signup() {
+function Signup({ showModal }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [age, setAge] = useState('');
@@ -20,7 +20,7 @@ function Signup() {
   return (
     <>
       <div className="login-container">
-        <i className="login-thumbtack" class='fas fa-thumbtack fa-3x' />
+        <i className="login-thumbtack fas fa-thumbtack fa-3x" />
         <h3>Welcome to Tacktivity</h3>
         <form onSubmit={handleSubmit}>
           <div>
@@ -34,7 +34,7 @@ function Signup() {
             <button type='submit' className='login-button'>Continue</button>
           </div>
         </form>
-        <div className='signup-redirect'>
+        <div className='signup-redirect' onClick={e => showModal("login")}>
           Already a member? Log in
         </div>
       </div>
