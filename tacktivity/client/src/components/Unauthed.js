@@ -8,12 +8,11 @@ import Signup from './Signup';
 function Unauthed() {
   const [displayModal, setDisplayModal] = useState(null);
 
-
   const showModal = type => {
     if (type === 'login') {
-      setDisplayModal(<Login displayModal={displayModal} />);
+      setDisplayModal(<Login showModal={showModal} />);
     } else if (type === 'signup') {
-      setDisplayModal(<Signup />);
+      setDisplayModal(<Signup showModal={showModal} />);
     }
   };
 

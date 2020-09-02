@@ -6,26 +6,23 @@ const { check } = require("express-validator");
 
 const { User } = require("../../db/models");
 const { handleValidationErrors } = require("../util/validation");
-const { requireUser, generateToken, AuthenticationError } = require("../util/auth");
+const { requireUser, generateToken, getCurrentUser, AuthenticationError } = require("../util/auth");
 const { jwtConfig: { expiresIn } } = require('../../config');
 
 const router = express.Router();
 
 const validateLogin = [
-  check("email").exists(),
-  check("password").exists(),
+  check("email", "Oi! You missed a spot! Gonna need your email.").exists(),
+  check("password", "What's the password?").exists(),
 ];
 
 // Get current user - if there is a user return is a json format the user object
-router.get("/", requireUser, asyncHandler(async function (req, res, next) {
-  if (req.user) {
-    return res.json({
-      user: req.user
-    });
-  }
-  next(new AuthenticationError()); // User is not authed to hit the route if there is no user
-})
-);
+router.get("/", getCurrentUser, asyncHandler(async function (req, res, next) {
+  return res.json({
+    user: req.user || {}
+  });
+  // next(new AuthenticationError()); // User is not authed to hit the route if there is no user
+}));
 
 // Validate user at login
 router.put("/", validateLogin, handleValidationErrors, asyncHandler(async function (req, res, next) {
