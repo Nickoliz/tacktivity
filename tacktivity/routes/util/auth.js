@@ -65,7 +65,7 @@ function getCurrentUser(req, _res, next) {
       req.user = await User.getCurrentUserById(userId);
     }
 
-    next();
+    return next();
   });
 }
 

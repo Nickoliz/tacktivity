@@ -14,7 +14,7 @@ const validateSignup = [
   check("email", "Must be a valid email.")
     .exists()
     .isEmail(),
-  check("hashedPassword", "Must be 6 or more characters.")
+  check("password", "Must be 6 or more characters.")
     .exists()
     .isLength({ min: 6, max: 70 }),
   check("age", "Must provide your age for protection.")
@@ -30,7 +30,7 @@ router.get('/', asyncHandler(async function (_req, res, _next) {
   res.json({ users });
 }));
 
-router.post("/", validateSignup, asyncHandler(async function (req, res) {
+router.post("/", validateSignup, handleValidationErrors, asyncHandler(async function (req, res) {
   const user = await User.signup(req.body);
 
   const token = await generateToken(user);
