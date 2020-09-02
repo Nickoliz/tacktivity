@@ -1,7 +1,8 @@
 .unauthed-background {
   position: fixed;
   background-image: url("../images/temp-bkgrnd.png");
-  background-size: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
   padding: 0;
   margin: 0;
   top: 0;
@@ -13,6 +14,8 @@
 .container {
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  background-color: white;
   box-sizing: border-box;
   flex-flow: row;
   position: fixed;
