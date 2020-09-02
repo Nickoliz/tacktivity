@@ -42,4 +42,9 @@ router.put("/", validateLogin, handleValidationErrors, asyncHandler(async functi
   return next(err);
 }));
 
+router.delete("/", asyncHandler(async (req, res, next) => {
+  res.clearCookie('token');
+  res.json({ message: 'success' });
+}));
+
 module.exports = router;

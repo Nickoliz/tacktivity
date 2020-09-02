@@ -52,6 +52,7 @@
 
 .search-bar {
   width: 100%;
+  background-color: #E1E1E1;
   padding: 17px;
   border-top-right-radius: 24px;
   border-bottom-right-radius: 24px;
@@ -60,7 +61,7 @@
 }
 
 .search-icon {
-  background-color: #efefef4D;
+  background-color: #E1E1E1;
   border-bottom-left-radius: 24px;
   border-top-left-radius: 24px;
   margin-left: 20px;
