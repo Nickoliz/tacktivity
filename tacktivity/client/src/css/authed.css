@@ -1,0 +1,86 @@
+* {
+  outline: none;
+}
+
+.fa-chevron-down {
+  margin-right: 10px;
+}
+.right-icon {
+  box-sizing: border-box;
+  cursor: pointer;
+  padding: 13px;
+}
+
+.home-button {
+  box-sizing: border-box;
+  display: block;
+  min-width: 70px;
+  min-height: 40px;
+  height: 40px;
+  text-align: center;
+  cursor: pointer;
+  padding: 8px 8px;
+  background-color: white;
+  color: #3792cb;
+  font-weight: 700;
+  border: none;
+  border-radius: 24px;
+  font-size: 14px;
+  margin: 8px;
+  margin-right: 10px;
+}
+
+.home-button:hover {
+  outline: none;
+  background-color: rgba(0, 0, 0, 0.062);
+}
+
+.home-button:avtive {
+  outline: none;
+  background-color: black;
+  color: white;
+}
+
+.right-icon:hover {
+  background-color: rgba(0, 0, 0, 0.062);
+  border-radius: 30px;
+}
+
+.fa-chevron-down:active {
+  transform: scale(.76);
+}
+
+.search-bar {
+  width: 100%;
+  padding: 17px;
+  border-top-right-radius: 24px;
+  border-bottom-right-radius: 24px;
+  border: none;
+  margin-right: 15px;
+}
+
+.search-icon {
+  background-color: #efefef4D;
+  border-bottom-left-radius: 24px;
+  border-top-left-radius: 24px;
+  margin-left: 20px;
+  margin-right: 0px;
+}
+
+.fa-search {
+  padding: 16px;
+  padding-bottom:19px;
+}
+
+
+.left-icon {
+  padding: 0px 16px;
+}
+
+
+/* Logout Modal */
+
+.logout-container {
+  box-sizing: border-box;
+
+}

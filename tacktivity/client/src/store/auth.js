@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 const SET_USER = 'auth/SET_USER';
 const CREATE_USER = 'users/CREATE_USER';
 const DEMO_LOGIN = 'auth/DEMO_LOGIN'
+const LOGOUT_USER = 'users/LOGOUT_USER'
 
 export const setUser = user => {
   return {
@@ -85,6 +86,20 @@ export const demoLogin = () => {
   };
 };
 
+export const logout = () => {
+  return async dispatch => {
+    const res = await fetch('/api/session', {
+      method: 'delete',
+      headers: {
+        "Content-Type": "application/json",
+        "XSRF-TOKEN": Cookies.remove("XSRF-TOKEN")
+      }
+    })
+    Cookies.remove('token');
+    dispatch(logoutUser());
+  }
+}
+
 export default function authReducer(state = {}, action) {
   Object.freeze(state);
   switch (action.type) {
@@ -94,6 +109,8 @@ export default function authReducer(state = {}, action) {
       return action.user;
     case DEMO_LOGIN:
         return action.user;
+    case LOGOUT_USER:
+      return action.user;
     default:
       return state;
   }
