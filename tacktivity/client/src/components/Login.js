@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login } from '../store/auth';
+import { login, demoLogin } from '../store/auth';
 import { Redirect } from 'react-router-dom';
 
 function Login({ showModal }) {
@@ -12,6 +12,11 @@ function Login({ showModal }) {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(login(email.toLocaleLowerCase(), password));
+  }
+
+  const handleDemo = e => {
+    e.preventDefault();
+    dispatch(demoLogin());
   }
 
   if (currentUserId) return <Redirect to='/home' />
@@ -39,7 +44,7 @@ function Login({ showModal }) {
           </div>
           <div className='form-break' />
           <div>
-            <button type='submit' className='login-button demo'>Demo User</button>
+            <button type='submit' className='login-button demo' onClick={handleDemo}>Demo User</button>
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 
 const SET_USER = 'auth/SET_USER';
 const CREATE_USER = 'users/CREATE_USER';
+const DEMO_LOGIN = 'auth/DEMO_LOGIN'
 
 export const setUser = user => {
   return {
@@ -14,6 +15,13 @@ export const setUser = user => {
 export const createUser = user => {
   return {
     type: CREATE_USER,
+    user
+  }
+}
+
+export const demoUser = user => {
+  return {
+    type: DEMO_LOGIN,
     user
   }
 }
@@ -56,6 +64,27 @@ export const signup = (email, password, age) => {
   };
 };
 
+export const demoLogin = () => {
+  return async dispatch => {
+    const email = 'demo@tacktivity.com';
+    const password = 'password'
+    const res = await fetch('/api/session', {
+      method: 'put',
+      headers: {
+        "Content-Type": "application/json",
+        "XSRF-TOKEN": Cookies.get("XSRF-TOKEN")
+      },
+      body: JSON.stringify({ email, password })
+    })
+    res.data = await res.json();
+    if (res.ok) {
+      dispatch(demoUser(res.data.user));
+      dispatch(setUser(res.data.user));
+    }
+    return res;
+  };
+};
+
 export default function authReducer(state = {}, action) {
   Object.freeze(state);
   switch (action.type) {
@@ -63,6 +92,8 @@ export default function authReducer(state = {}, action) {
       return action.user;
     case CREATE_USER:
       return action.user;
+    case DEMO_LOGIN:
+        return action.user;
     default:
       return state;
   }
