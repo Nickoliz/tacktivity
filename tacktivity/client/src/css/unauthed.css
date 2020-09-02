@@ -21,7 +21,11 @@
   width: 100%;
 }
 
-.fa-thumbtack {
+.nav-space {
+  width: 100%;
+}
+
+.thumbtack-logo {
   padding-left: 20px;
 }
 
@@ -30,38 +34,43 @@
   font-weight: bold;
   padding-right: 45px;
   letter-spacing: -.5px;
-  color: #3792cb
-
+  color: #3792cb;
+  margin: 0;
 }
 
 .container-button {
   box-sizing: border-box;
-  min-width: 60px;
+  min-width: 70px;
   min-height: 40px;
   height: 40px;
   text-align: center;
   cursor: pointer;
-  display: block;
-  padding: 8px 12px;
+  padding: 8px 8px;
   transition: transform 85ms ease-out;
   background-color: #3792cb;
   color: white;
   font-weight: 700;
   border-radius: 24px;
-  font-size: 16px;
+  font-size: 14px;
   border: none;
-  margin-right: 20px;
+  margin: 8px;
+  margin-right: 10px;
 }
 
+.signup {
+  margin-right: 30px;
+  background-color: #efefef;
+  color: black;
+}
 .container-button:active {
   transform: scale(.9457)
 }
 
-.nav-space {
+/* .nav-space {
   width: 1550px;
-}
+} */
 
-.overlay {
+.modal-overlay {
   position: fixed;
   padding: 0;
   margin: 0;
@@ -69,7 +78,7 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.45)
+  background-color: rgba(0, 0, 0, 0.65)
 }
 
 .login-container {
@@ -96,7 +105,7 @@ h3 {
   font-size: 36px;
   font-weight: 600;
   color: rgb(51, 51, 51);
-  margin: 0;
+  margin: .25em;
   letter-spacing: -1.2px;;
 }
 
@@ -117,6 +126,7 @@ h3 {
 
 .login-input:focus {
   box-shadow: 0 0 0 3px #3792cb;
+  outline: none;
 }
 
 .login-input:hover {
@@ -145,9 +155,9 @@ h3 {
 }
 
 .fa-times {
-  position: fixed;
-  margin-top: 25px;
-  margin-left: 1850px;
+  position: absolute;
+  top: 32px;
+  right: 42px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
@@ -158,7 +168,7 @@ h3 {
 }
 
 .fa-times:hover {
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0,0,0,.17);
 }
 
 .fa-times:active {
