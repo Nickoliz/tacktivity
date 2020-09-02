@@ -30,6 +30,7 @@ export const login = (email, password) => {
     });
     res.data = await res.json();
     if (res.ok) {
+      dispatch(createUser(res.data.user));
       dispatch(setUser(res.data.user));
     }
     return res;
