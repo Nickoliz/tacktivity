@@ -21,7 +21,6 @@ router.get("/", getCurrentUser, asyncHandler(async function (req, res, next) {
   return res.json({
     user: req.user || {}
   });
-  // next(new AuthenticationError()); // User is not authed to hit the route if there is no user
 }));
 
 // Validate user at login
