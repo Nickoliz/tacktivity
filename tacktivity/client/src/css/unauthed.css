@@ -14,6 +14,8 @@
 .container {
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  background-color: white;
   box-sizing: border-box;
   flex-flow: row;
   position: fixed;
@@ -173,8 +175,8 @@ h3 {
 
 .fa-times {
   position: absolute;
-  top: 32px;
-  right: 42px;
+  top: 25px;
+  right: 45px;
   color: #fff;
   background-color: rgba(0, 0, 0, 0);
   cursor: pointer;
@@ -182,10 +184,11 @@ h3 {
   border: none;
   box-sizing: border-box;
   z-index: 1010;
+  padding: 8px;
 }
 
 .fa-times:hover {
-  background-color: rgba(0,0,0,.17);
+  background-color: rgba(0,0,0,.08);
 }
 
 .fa-times:active {
