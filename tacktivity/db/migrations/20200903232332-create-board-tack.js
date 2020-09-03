@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       notes: {
-        type: Sequelize.TEXT(50)
+        type: Sequelize.STRING(50)
       },
       userId: {
         allowNull: false,
@@ -27,7 +27,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       comments: {
-        type: Sequelize.TEXT(100)
+        type: Sequelize.STRING(100)
       },
       createdAt: {
         allowNull: false,
