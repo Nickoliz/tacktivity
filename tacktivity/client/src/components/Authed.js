@@ -3,8 +3,20 @@ import '../css/authed.css'
 
 import Logout from './Logout';
 
+let modalClass = "hide-chevron-modal";
 function Authed() {
   const [displayModal, setDisplayModal] = useState(null);
+
+
+  const toggleModal = () => {
+    if (modalClass === "hide-chevron-modal") {
+      modalClass = "show-chevron-modal";
+      setDisplayModal(<Logout />)
+    } else if (modalClass === "show-chevron-modal") {
+      modalClass = "hide-chevron-modal";
+      setDisplayModal(null);
+    }
+  }
 
   return (
     <>
@@ -19,15 +31,10 @@ function Authed() {
           <i className='fas fa-bell fa-2x right-icon' />
           <i className='fas fa-comment-dots fa-2x right-icon' />
           <i className='fas fa-user-circle fa-2x right-icon' />
-          <span>
-            <i className='fas fa-chevron-down right-icon' />
-            <Logout />
-            {!!displayModal && (
-              <div>
-                {displayModal}
-              </div>
-            )}
-          </span>
+          <i className='fas fa-chevron-down right-icon' onClick={e => toggleModal()} />
+          <div className={modalClass}>
+          </div>
+          {displayModal}
         </div>
       </div>
     </>

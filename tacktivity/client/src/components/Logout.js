@@ -19,9 +19,8 @@ function Logout() {
     <>
       <div className='logout-container'>
         <div className='logout-container_box'>
-          <div>
-            <button className='logout-button' onClick={e => logoutUser()}>Logout</button>
-          </div>
+          <p className='more-options'>More options</p>
+          <div className='logout-container--button' onClick={e => logoutUser()}>Logout</div>
         </div>
       </div>
     </>
