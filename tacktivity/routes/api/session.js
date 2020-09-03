@@ -6,7 +6,7 @@ const { check } = require("express-validator");
 
 const { User } = require("../../db/models");
 const { handleValidationErrors } = require("../util/validation");
-const { requireUser, generateToken, AuthenticationError } = require("../util/auth");
+const { requireUser, generateToken, getCurrentUser, AuthenticationError } = require("../util/auth");
 const { jwtConfig: { expiresIn } } = require('../../config');
 
 const router = express.Router();
@@ -17,15 +17,11 @@ const validateLogin = [
 ];
 
 // Get current user - if there is a user return is a json format the user object
-router.get("/", requireUser, asyncHandler(async function (req, res, next) {
-  if (req.user) {
-    return res.json({
-      user: req.user
-    });
-  }
-  next(new AuthenticationError()); // User is not authed to hit the route if there is no user
-})
-);
+router.get("/", getCurrentUser, asyncHandler(async function (req, res, next) {
+  return res.json({
+    user: req.user || {}
+  });
+}));
 
 // Validate user at login
 router.put("/", validateLogin, handleValidationErrors, asyncHandler(async function (req, res, next) {
@@ -44,6 +40,11 @@ router.put("/", validateLogin, handleValidationErrors, asyncHandler(async functi
   const err = new Error('Invalid credentials');
   err.status = 422;
   return next(err);
+}));
+
+router.delete("/", asyncHandler(async (req, res, next) => {
+  res.clearCookie('token');
+  res.json({ message: 'success' });
 }));
 
 module.exports = router;

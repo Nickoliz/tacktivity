@@ -14,16 +14,14 @@ module.exports = {
         unique: true,
       },
       firstName: {
-        allowNull: false,
         type: Sequelize.STRING(50),
       },
       lastName: {
-        allowNull: false,
         type: Sequelize.STRING(100),
       },
       age: {
-        allowNull: false,
-        type: Sequelize.INTEGER
+        allowNull: true,
+        type: Sequelize.STRING(2)
       },
       hashedPassword: {
         allowNull: false,

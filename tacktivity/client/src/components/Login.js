@@ -14,6 +14,11 @@ function Login({ showModal }) {
     dispatch(login(email.toLocaleLowerCase(), password));
   }
 
+  const handleDemo = e => {
+    e.preventDefault();
+    dispatch(login('demo@tacktivity.com', 'password'));
+  }
+
   if (currentUserId) return <Redirect to='/home' />
 
   return (
@@ -39,7 +44,7 @@ function Login({ showModal }) {
           </div>
           <div className='form-break' />
           <div>
-            <button type='submit' className='login-button demo'>Demo User</button>
+            <button type='submit' className='login-button demo' onClick={handleDemo}>Demo User</button>
           </div>
         </div>
       </div>
