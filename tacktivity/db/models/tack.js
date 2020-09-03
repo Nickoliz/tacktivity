@@ -5,7 +5,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.TEXT
   }, {});
   Tack.associate = function(models) {
-    // associations can be defined here
+    Tack.belongsTo(models.User, { foreignKey: "userID"})
   };
   return Tack;
 };

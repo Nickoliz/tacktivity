@@ -1,37 +1,32 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Tacks', {
+    return queryInterface.createTable('BoardTacks', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
+      boardName: {
         allowNull: false,
-        type: Sequelize.STRING(100)
-      },
-      description: {
-        type: Sequelize.TEXT(300)
-      },
-      url: {
-        allowNull: false,
-        type: Sequelize.STRING,
-      },
-      originalUser: {
-        allowNull: false,
-        references: {models: "Users"},
-        type: Sequelize.STRING,
-      },
-      tackImage: {
-        references: { models: "Images"},
+        references: { model: "Boards" },
         type: Sequelize.STRING
       },
-      userId: {
+      tackId: {
         allowNull: false,
-        references: {models: "Users"},
+        references: { model: "Tacks" },
         type: Sequelize.INTEGER
+      },
+      notes: {
+        type: Sequelize.TEXT(50)
+      },
+      user: {
+        references: { model: "Users" },
+        type: Sequelize.STRING
+      },
+      comments: {
+        type: Sequelize.TEXT(100)
       },
       createdAt: {
         allowNull: false,
@@ -44,6 +39,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Tacks');
+    return queryInterface.dropTable('BoardTacks');
   }
 };
