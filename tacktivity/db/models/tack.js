@@ -16,7 +16,18 @@ module.exports = (sequelize, DataTypes) => {
     });
   Tack.associate = function (models) {
     Tack.belongsTo(models.User, { foreignKey: "userId" })
-    Tack.hasMany(models.BoardTack, {foreignKey: "tackId"})
+    Tack.hasMany(models.BoardTack, { foreignKey: "tackId" })
   };
+
+  Tack.createTack = async function ({ title, description, url, tackImage }) {
+    const tack = await Tack.create({
+      title,
+      description,
+      url,
+      tackImage
+    });
+    return await Tack.scope('currentTack').findByPk(tack.id);
+  };
+
   return Tack;
 };
