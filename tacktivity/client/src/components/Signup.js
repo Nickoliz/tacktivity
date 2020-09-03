@@ -29,7 +29,7 @@ function Signup({ showModal }) {
           <div>
             <input type='password' className='login-input' name='password' value={password} placeholder='Password' onChange={e => setPassword(e.target.value)} />
           </div>
-          <input type='text' className='login-input' name='age' value={age} placeholder='Age' onChange={e => setAge(e.target.value)} />
+          <input type='text' className='login-input' name='age' placeholder='Age' onChange={e => setAge(e.target.value)} />
           <div>
             <button type='submit' className='login-button'>Continue</button>
           </div>

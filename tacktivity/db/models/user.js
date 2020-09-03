@@ -21,8 +21,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
       },
       age: {
-        allowNull: false,
-        type: DataTypes.INTEGER
+        allowNull: true,
+        type: DataTypes.STRING(2)
       },
       hashedPassword: {
         allowNull: false,
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       scopes: {
         currentUser: {
-          attributes: { exclude: ["hashedPassword"] },
+          attributes: { exclude: ["age", "createdAt", "hashedPassword"] },
         },
         loginUser: {
           attributes: {},
