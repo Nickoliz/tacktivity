@@ -16,7 +16,7 @@ function Login({ showModal }) {
 
   const handleDemo = e => {
     e.preventDefault();
-    dispatch(demoLogin());
+    dispatch(login('demo@tacktivity.com', 'password'));
   }
 
   if (currentUserId) return <Redirect to='/home' />
