@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
     key: DataTypes.STRING
   }, {});
   Image.associate = function(models) {
-    // associations can be defined here
+    Image.hasOne(models.Tack, {foreignKey: 'key'})
   };
   return Image;
 };

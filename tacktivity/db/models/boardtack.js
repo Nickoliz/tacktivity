@@ -4,11 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     boardName: DataTypes.STRING,
     tackId: DataTypes.INTEGER,
     notes: DataTypes.TEXT,
-    user: DataTypes.STRING,
+    userId: DataTypes.STRING,
     comments: DataTypes.TEXT
   }, {});
-  BoardTack.associate = function(models) {
-    // associations can be defined here
+  BoardTack.associate = function (models) {
+    BoardTack.hasOne(models.Tack, { foreignKey: 'tackId' });
+    BoardTack.belongsTo(models.User, { foreignKey: 'userId' });
+
   };
   return BoardTack;
 };

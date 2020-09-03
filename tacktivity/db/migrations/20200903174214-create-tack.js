@@ -19,18 +19,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING,
       },
-      originalUser: {
-        allowNull: false,
-        references: {models: "Users"},
-        type: Sequelize.STRING,
-      },
       tackImage: {
-        references: { models: "Images"},
+        references: { models: "Images" },
         type: Sequelize.STRING
       },
       userId: {
         allowNull: false,
-        references: {models: "Users"},
+        references: { models: "Users" },
         type: Sequelize.INTEGER
       },
       createdAt: {

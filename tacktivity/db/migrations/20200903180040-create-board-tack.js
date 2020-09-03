@@ -21,7 +21,8 @@ module.exports = {
       notes: {
         type: Sequelize.TEXT(50)
       },
-      user: {
+      userId: {
+        allowNull: false,
         references: { model: "Users" },
         type: Sequelize.STRING
       },
