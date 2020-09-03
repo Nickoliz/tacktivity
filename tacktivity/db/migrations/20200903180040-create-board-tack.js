@@ -8,10 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      boardName: {
+      boardId: {
         allowNull: false,
         references: { model: "Boards" },
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER
       },
       tackId: {
         allowNull: false,

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const BoardTack = sequelize.define('BoardTack', {
-    boardName: DataTypes.STRING,
+    boardId: DataTypes.INTEGER,
     tackId: DataTypes.INTEGER,
     notes: DataTypes.TEXT,
     userId: DataTypes.STRING,
@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   BoardTack.associate = function (models) {
     BoardTack.hasOne(models.Tack, { foreignKey: 'tackId' });
     BoardTack.belongsTo(models.User, { foreignKey: 'userId' });
+    BoardTack.hasMany(models.Board, {foreignKey: "boardId"})
 
   };
   return BoardTack;

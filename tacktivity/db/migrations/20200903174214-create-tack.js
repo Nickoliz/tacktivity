@@ -13,19 +13,18 @@ module.exports = {
         type: Sequelize.STRING(100)
       },
       description: {
-        type: Sequelize.TEXT(300)
+        type: Sequelize.STRING(300)
       },
       url: {
         allowNull: false,
         type: Sequelize.STRING,
       },
       tackImage: {
-        references: { models: "Images" },
         type: Sequelize.STRING
       },
       userId: {
         allowNull: false,
-        references: { models: "Users" },
+        references: { model: "Users" },
         type: Sequelize.INTEGER
       },
       createdAt: {
