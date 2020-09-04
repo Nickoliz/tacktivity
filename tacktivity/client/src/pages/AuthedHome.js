@@ -7,7 +7,7 @@ function AuthedHome() {
   return (
     <>
       <Authed />
-      <Photos />
+      {/* <Photos /> */}
     </>
   )
 }

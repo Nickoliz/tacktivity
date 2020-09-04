@@ -8,15 +8,15 @@ const router = express.Router();
 
 // GET /photos
 router.get("/", asyncHandler(async function (req, res, next) {
-  // unsplash.photos.listPhotos(1, 20, "latest")
-  //   .then(toJson)
-  //   .then(json => {
-  //     console.log(json);
-  //   })
+  unsplash.photos.listPhotos(1, 20, "latest")
+    .then(toJson)
+    .then(json => {
+      console.log(json);
+    })
 
-  const photoPack = await unsplash.photos.listPhotos(1, 20);
-  const photo = await photoPack.json();
-  console.log(photo.urls);
+  // const photoPack = await unsplash.photos.listPhotos(1, 20);
+  // const photo = await photoPack.json()
+  // console.log(photo.urls);
 
 }))
 
