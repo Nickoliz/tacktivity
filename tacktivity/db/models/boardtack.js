@@ -8,9 +8,9 @@ module.exports = (sequelize, DataTypes) => {
     comments: DataTypes.TEXT
   }, {});
   BoardTack.associate = function (models) {
-    BoardTack.hasOne(models.User, { foreignKey: 'userId'});
-    BoardTack.hasOne(models.Tack, { foreignKey: 'tackId' });
-    BoardTack.hasOne(models.Board, {foreignKey: 'boardId'})
+    BoardTack.hasOne(models.User, { foreignKey: 'id'});
+    BoardTack.hasOne(models.Tack, { foreignKey: 'id' });
+    BoardTack.hasOne(models.Board, {foreignKey: 'id'})
 
   };
   return BoardTack;
