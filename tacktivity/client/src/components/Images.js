@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { getPhotos } from '../store/imageReducer';
+import { getPhotos } from '../store/photoReducer';
 
 function Images() {
   const [images, setImages] = useState('');
