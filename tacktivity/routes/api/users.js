@@ -17,10 +17,6 @@ const validateSignup = [
   check("password", "Must be 6 or more characters.")
     .exists()
     .isLength({ min: 6, max: 70 }),
-  check("age", "Must provide your age for protection.")
-    .exists()
-    .isNumeric(),
-
 ];
 
 const router = express.Router();

@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import '../css/authed.css'
 
 import Logout from './Logout';
+import { Redirect } from 'react-router-dom';
+
+
 
 
 function Authed() {
   const [displayModal, setDisplayModal] = useState(null);
+  const currentUserId = useSelector(state => state.auth.id);
 
+  if (!currentUserId) return <Redirect to='/' />
 
   const toggleModal = () => {
     if (displayModal) {
