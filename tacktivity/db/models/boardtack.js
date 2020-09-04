@@ -4,13 +4,13 @@ module.exports = (sequelize, DataTypes) => {
     boardId: DataTypes.INTEGER,
     tackId: DataTypes.INTEGER,
     notes: DataTypes.TEXT,
-    userId: DataTypes.STRING,
+    userId: DataTypes.INTEGER,
     comments: DataTypes.TEXT
   }, {});
   BoardTack.associate = function (models) {
+    BoardTack.hasOne(models.User, { foreignKey: 'userId'});
     BoardTack.hasOne(models.Tack, { foreignKey: 'tackId' });
-    BoardTack.hasOne(models.User, { foreignKey: 'userId' });
-    BoardTack.hasMany(models.Board, {foreignKey: "boardId"})
+    BoardTack.hasOne(models.Board, {foreignKey: 'boardId'})
 
   };
   return BoardTack;

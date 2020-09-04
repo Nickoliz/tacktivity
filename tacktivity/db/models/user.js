@@ -50,9 +50,9 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   User.associate = function (models) {
-    User.hasMany(models.Tack, { foreignKey: "userId" });
-    User.hasMany(models.Board, { foreignKey: "userId" });
-    User.hasMany(models.BoardTack, { foreignKey: "userId" });
+    User.hasMany(models.Tack, { foreignKey: 'userId' });
+    User.hasMany(models.Board, { foreignKey: 'userId' });
+    User.belongsTo(models.BoardTack, { foreignKey: "userId" });
   };
 
   User.prototype.toSafeObject = function () {
