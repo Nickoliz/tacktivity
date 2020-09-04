@@ -7,8 +7,9 @@ function Images() {
   const [images, setImages] = useState('');
   const dispatch = useDispatch();
 
-  (getPhotos = () => {
-    setImages(dispatch(getPhotos()));
+  (function showPhotos() {
+    const photos = dispatch(getPhotos());
+    setImages(photos);
   })();
 
   return (
