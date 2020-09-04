@@ -6,6 +6,7 @@ function AuthedHome() {
   return (
     <>
       <Authed />
+      <Images />
     </>
   )
 }

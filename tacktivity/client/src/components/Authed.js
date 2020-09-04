@@ -3,6 +3,7 @@ import '../css/authed.css'
 
 import Logout from './Logout';
 
+
 function Authed() {
   const [displayModal, setDisplayModal] = useState(null);
 
