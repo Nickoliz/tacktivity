@@ -20,8 +20,8 @@ module.exports = {
         type: Sequelize.STRING(100),
       },
       age: {
-        allowNull: false,
-        type: Sequelize.INTEGER
+        allowNull: true,
+        type: Sequelize.STRING(2)
       },
       hashedPassword: {
         allowNull: false,

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { login, demoLogin } from '../store/auth';
+import { login } from '../store/auth';
 import { Redirect } from 'react-router-dom';
 
 function Login({ showModal }) {
@@ -16,7 +16,7 @@ function Login({ showModal }) {
 
   const handleDemo = e => {
     e.preventDefault();
-    dispatch(demoLogin());
+    dispatch(login('demo@tacktivity.com', 'password'));
   }
 
   if (currentUserId) return <Redirect to='/home' />

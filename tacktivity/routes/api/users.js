@@ -16,7 +16,7 @@ const validateSignup = [
     .isEmail(),
   check("password", "Must be 6 or more characters.")
     .exists()
-    .isLength({ min: 6, max: 70 })
+    .isLength({ min: 6, max: 70 }),
 ];
 
 const router = express.Router();
