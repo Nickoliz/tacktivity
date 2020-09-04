@@ -23,5 +23,7 @@ export default function photoReducer(state = {}, action) {
   switch (action.type) {
     case GET_PHOTOS:
       return [state, ...action.photo];
+    default:
+      return state;
   }
 }
