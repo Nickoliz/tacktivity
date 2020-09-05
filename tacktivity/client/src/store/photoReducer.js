@@ -1,25 +1,26 @@
+import Cookies from 'js-cookie';
 
-const GET_PHOTOS = 'getimage/GET_PHOTOS';
+const GET_PHOTOS = 'photos/search/GET_PHOTOS';
 
-export const photo = photo => {
+export const setPhotos = photos => {
   return {
     type: GET_PHOTOS,
-    photo
+    photos
   }
 }
 
-export const getPhotos = () => {
+export const getPhotos = term => {
   return async dispatch => {
-    const res = await fetch('/api/photos', {
+    const res = await fetch(`/api/photos/search/${term}`, {
       headers: {
         "Content-Type": "application/json",
+        "XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
       },
-      // body: JSON.stringify({ keyword }),
     });
-    res.data = await res.json();
+    res.photos = await res.json();
     if (res.ok) {
-      console.log(res.data);
-      dispatch(getPhotos(res.data));
+      const photos = res.photos;
+      dispatch(setPhotos(res.photos));
     }
     return res;
   };
@@ -29,7 +30,7 @@ export default function photoReducer(state = {}, action) {
   Object.freeze(state);
   switch (action.type) {
     case GET_PHOTOS:
-      return action.photo;
+      return action.photos;
     default:
       return state;
   }
