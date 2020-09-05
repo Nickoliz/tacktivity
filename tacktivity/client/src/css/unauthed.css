@@ -138,6 +138,22 @@ h3 {
   outline: none;
 }
 
+.bad-input {
+  outline: none;
+  border-color: red;
+  box-sizing: border-box;
+  min-height: 48px;
+  width: 248px;
+  color: #111;
+  background-color: #fff;
+  padding: 8px 16px;
+  margin: 4px;
+  font-size: 16px;
+  border-radius: 16px;
+  border-style: solid;
+  border-width: 2px;
+}
+
 .login-button {
   box-sizing: border-box;
   min-height: 40px;

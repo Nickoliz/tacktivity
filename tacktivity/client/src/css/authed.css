@@ -94,9 +94,9 @@
 }
 
 @media (max-width: 850px) {
-  .search-bar {
+  /* .search-bar {
 
-  }
+  } */
 
   .fa-search {
     display: inline-block;

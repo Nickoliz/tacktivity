@@ -37,7 +37,7 @@ router.put("/", validateLogin, handleValidationErrors, asyncHandler(async functi
       user,
     });
   }
-  const err = new Error('Invalid credentials');
+  const err = new Error('Invalid email and password.');
   err.status = 422;
   return next(err);
 }));
