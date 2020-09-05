@@ -15,9 +15,9 @@ function Photos() {
     listImages.push(
       <>
         <img src={img.urls.small} key={img.id} alt={img.alt_description} />
-        <div className='image-title'>
+        {/* <div className='image-title'>
           {img.description}
-        </div>
+        </div> */}
       </>
     );
   }
