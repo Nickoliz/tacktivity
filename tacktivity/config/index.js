@@ -10,5 +10,8 @@ module.exports = {
   jwtConfig: {
     secret: process.env.JWT_SECRET_KEY,
     expiresIn: process.env.JWT_EXPIRES_IN
+  },
+  unsplash: {
+    secret: process.env.UNSPLASH_API_KEY,
   }
 };

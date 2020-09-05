@@ -3,21 +3,24 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getPhotos } from '../store/photoReducer';
 
-function Images() {
+function Photos() {
   const photos = useSelector(state => state.photoReducer)
-  const [images, setImages] = useState(photos);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  (function showPhotos() {
-    const photos = dispatch(getPhotos());
-    setImages(photos);
-  })();
+
+  // THIS ALL WORKS -- BELOW
+
+  const listImages = [];
+
+  // for (let img of photos) {
+  //   listImages.push(<img src={img.urls.small} key={img.id} alt={img.alt_description} />)
+  // }
 
   return (
     <>
       <div className='image-container'>
         <div className='image-box'>
-          {images}
+          {listImages}
         </div>
       </div>
     </>
@@ -26,4 +29,4 @@ function Images() {
 }
 
 
-export default Images;
+export default Photos;
