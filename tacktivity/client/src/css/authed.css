@@ -92,3 +92,17 @@
 .form-tag {
   width: 100%;
 }
+
+@media (max-width: 850px) {
+  .search-bar {
+
+  }
+
+  .fa-search {
+    display: inline-block;
+  }
+  .form-tag {
+    width: 100%;
+  }
+
+}

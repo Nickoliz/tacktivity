@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { getPhotos } from '../store/photoReducer';
 
 function Images() {
+  const photos = useSelector(state => state.photoReducer)
   const [images, setImages] = useState('');
   const dispatch = useDispatch();
 

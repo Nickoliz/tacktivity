@@ -7,9 +7,14 @@ export const photo = photo => {
   }
 }
 
-export const getPhotos = () => {
+export const getPhotos = keyword => {
   return async dispatch => {
-    const res = await fetch('/api/photos');
+    const res = await fetch('/api/photos', {
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ keyword }),
+    });
     res.data = await res.json();
     if (res.ok) {
       dispatch(getPhotos(res.data));
