@@ -1,20 +1,10 @@
 import React, { useState } from 'react'
-import Photos from './Photos';
 import { useDispatch } from 'react-redux';
 
 import { getPhotos } from '../store/photoReducer';
 
-// TEST
-
-// import Unsplash, { toJson } from 'unsplash-js';
-
-// const unsplash = new Unsplash({ accessKey: process.env.UNSPLASH_API_KEY, secret: process.env.UNSPLASH_SECRET_KEY })
-
-const apiKey = process.env.UNSPLASH_API_KEY;
-
 function SearchBar() {
   const [searchParam, setSearchParam] = useState('');
-  const [image, setImage] = useState('');
   const dispatch = useDispatch();
 
 
@@ -56,7 +46,6 @@ function SearchBar() {
           <input type='text' placeholder='Search' className="search-bar" value={searchParam} onChange={e => setSearchParam(e.target.value)} />
         </i>
       </form>
-      <Photos image={image} />
     </>
   )
 }

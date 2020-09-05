@@ -9,18 +9,15 @@ const router = express.Router();
 
 // GET /search/photos
 router.get('/search/:term', asyncHandler(async function (req, res, next) {
-  const term = req.params.term;
-  // try {
-  const data = await fetch(`https://api.unsplash.com/search/photos?per_page=2&query=${term}&client_id=X2Dj56kaMcyuUuozi8CGMjBm40hHXweLsBuhUGnuwbc`);
-  const imageData = await data.json();
-  const photos = [...imageData.results];
-  // imageData.results.map((img) => {
-  //   photos.push(img);
-  // })
-  return res.json({ photos });
-  // } catch (err) {
-  //   console.warn(err);
-  // }
+  try {
+    const term = req.params.term;
+    const data = await fetch(`https://api.unsplash.com/search/photos?per_page=20&query=${term}&client_id=X2Dj56kaMcyuUuozi8CGMjBm40hHXweLsBuhUGnuwbc`);
+    const imageData = await data.json();
+    const photos = [...imageData.results];
+    return res.json({ photos });
+  } catch (err) {
+    console.warn(err);
+  }
 }));
 
 // ALL THIS BELOW WORKS

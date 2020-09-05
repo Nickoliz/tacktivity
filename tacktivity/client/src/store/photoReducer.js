@@ -19,7 +19,6 @@ export const getPhotos = term => {
     });
     res.photos = await res.json();
     if (res.ok) {
-      const photos = res.photos;
       dispatch(setPhotos(res.photos));
     }
     return res;

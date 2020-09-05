@@ -1,8 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { getPhotos } from '../store/photoReducer';
-
 function Photos() {
   const photos = useSelector(state => state.photoReducer.photos)
 
@@ -14,14 +12,15 @@ function Photos() {
 
   for (let image in photos) {
     const img = photos[image];
-    listImages.push(<img src={img.urls.small} key={img.id} alt={img.alt_description} />);
+    listImages.push(
+      <>
+        <img src={img.urls.small} key={img.id} alt={img.alt_description} />
+        <div className='image-title'>
+          {img.description}
+        </div>
+      </>
+    );
   }
-
-  console.log(listImages);
-
-  // for (let img in photos) {
-  //   listImages.push(<img src={img.urls.small} key={img.id} alt={img.alt_description} />)
-  // }
 
   return (
     <>
