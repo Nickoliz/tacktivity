@@ -88,9 +88,13 @@
   border: none;
 }
 
-
 .form-tag {
   width: 100%;
+}
+
+.H1 {
+  margin-top: 1000px;
+  cursor: zoom-in;
 }
 
 @media (max-width: 850px) {

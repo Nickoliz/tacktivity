@@ -5,7 +5,7 @@ import { getPhotos } from '../store/photoReducer';
 
 function Images() {
   const photos = useSelector(state => state.photoReducer)
-  const [images, setImages] = useState('');
+  const [images, setImages] = useState(photos);
   const dispatch = useDispatch();
 
   (function showPhotos() {
