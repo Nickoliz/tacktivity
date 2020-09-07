@@ -16,6 +16,18 @@ function SearchBar() {
     }
   }
 
+  return (
+    <>
+      <form className='form-tag' onSubmit={onSearch}>
+        <i className='fas fa-search'>
+          <input type='text' placeholder='Search' className="search-bar" value={searchParam} onChange={e => setSearchParam(e.target.value)} />
+        </i>
+      </form>
+    </>
+  )
+}
+
+export default SearchBar;
 
   // THIS WORKS!
   // const imgs = [];
@@ -38,16 +50,3 @@ function SearchBar() {
   //     const badRequest = res.json();
   //   }
   // }
-
-  return (
-    <>
-      <form className='form-tag' onSubmit={onSearch}>
-        <i className='fas fa-search'>
-          <input type='text' placeholder='Search' className="search-bar" value={searchParam} onChange={e => setSearchParam(e.target.value)} />
-        </i>
-      </form>
-    </>
-  )
-}
-
-export default SearchBar;

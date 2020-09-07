@@ -11,9 +11,9 @@ const router = express.Router();
 router.get('/search/:term', asyncHandler(async function (req, res, next) {
   try {
     const term = req.params.term;
-    const data = await fetch(`https://api.unsplash.com/search/photos?per_page=20&query=${term}&client_id=X2Dj56kaMcyuUuozi8CGMjBm40hHXweLsBuhUGnuwbc`);
+    const data = await fetch(`https://api.unsplash.com/search/photos?page=1&per_page=50&query=${term}&client_id=X2Dj56kaMcyuUuozi8CGMjBm40hHXweLsBuhUGnuwbc`);
     const imageData = await data.json();
-    const photos = [...imageData.results];
+    const photos = imageData.results;
     return res.json({ photos });
   } catch (err) {
     console.warn(err);
