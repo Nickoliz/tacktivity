@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 import '../css/authed.css'
 
-import DashPhotos from './DashPhotos';
 import Logout from './Logout';
 import SearchBar from './SearchBar';
 
 import { loadPhotos } from '../store/photoReducer';
+import SearchPhotos from './SearchPhotos';
 
 
 function Authed() {
@@ -39,7 +40,9 @@ function Authed() {
       <div>
         <div className="container">
           <i className="fas fa-thumbtack fa-2x thumb-authed left-icon" />
-          <button className="home-button at-home left-icon" type='text'>Home</button>
+          <NavLink to='/home' style={{textDecoration: 'none'}} >
+            <button className="home-button at-home left-icon" type='text' onClick={e => window.location.reload()}>Home</button>
+          </NavLink>
           <SearchBar />
           <i className='fas fa-bell fa-2x right-icon' />
           <i className='fab fa-github fa-2x right-icon' />
@@ -50,7 +53,6 @@ function Authed() {
           {displayModal}
         </div>
       </div>
-      < DashPhotos />
     </>
   )
 }

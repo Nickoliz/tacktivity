@@ -1,8 +1,12 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { getSinglePhoto } from '../store/photoReducer';
 
 function SearchPhotos() {
   const photos = useSelector(state => state.photoReducer.photos)
+  const [singleImageId, setSingleImageId] = useState('');
+  const dispatch = useDispatch();
 
   let listImages = [];
 
@@ -16,20 +20,14 @@ function SearchPhotos() {
     //   imgDesc = img.description.substring(0, 77) + "...";
     // }
 
+    const handleClick = id => {
+      dispatch(getSinglePhoto(singleImageId))
+    }
 
-
-    //   if (objLen === 0) {
-    //     listImages = (
-    //       <>
-    //         <img src='https://img.cinemablend.com/cb/f/c/5/8/2/6/fc5826a19acdbfd29728b2f398e854ef821312f66a696bd6d9db37d491a23891.jpg' key='1' alt='photo_genesis' />
-    //       </>
-    //     );
-    //   }
-    //   else {
     listImages.push(
       <>
         <div className='mosaic-box'>
-          <img src={img.urls.small} key={img.id} alt={img.alt_description} />
+          <img src={img.urls.small} key={img.id} alt={img.alt_description} onClick={e => handleClick(img.id)} />
           {/* <div className='image-title' key={img.links.self}>
             {imgDesc}
           </div> */}

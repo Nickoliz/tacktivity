@@ -13,6 +13,7 @@ router.get('/search/:term', asyncHandler(async function (req, res, next) {
     const term = req.params.term;
     const data = await fetch(`https://api.unsplash.com/search/photos?page=1&per_page=50&query=${term}&client_id=${secret}`);
     const imageData = await data.json();
+    console.log(imageData);
     const photos = imageData.results;
     return res.json({ photos });
   } catch (err) {
@@ -22,10 +23,25 @@ router.get('/search/:term', asyncHandler(async function (req, res, next) {
 
 router.get('/', asyncHandler(async function (req, res, next) {
   try {
-    const data = await fetch(`https://api.unsplash.com/photos?client_id=${secret}`);
+    const data = await fetch(`https://api.unsplash.com/photos?page=1&per_page=50&client_id=${secret}`);
     const imageData = await data.json();
-    const photos = imageData.results;
+    const photos = imageData;
+    console.log(imageData);
     return res.json({ photos });
+  } catch (err) {
+    console.warn(err);
+  }
+}));
+
+router.get('/:id', asyncHandler(async function (req, res, next) {
+  const id = req.params.id;
+  try {
+    const data = await fetch(`https://api.unsplash.com/photos/${id}?&client_id=${secret}`);
+    const imageData = await data.json();
+    const photos = imageData;
+    console.log(imageData);
+    console.log("GETTING SINGLE")
+    return res.json({ photo });
   } catch (err) {
     console.warn(err);
   }
@@ -49,7 +65,7 @@ router.get('/', asyncHandler(async function (req, res, next) {
 
 // async function testRun() {
 //   try {
-//     const data = await fetch(`https://api.unsplash.com/photos?client_id=INPUT API KEY FOR TESTING`);
+//     const data = await fetch(`https://api.unsplash.com/photos/fPKgvXNSNqg?&client_id=INSERT API FOR TESTING`);
 //     const imageData = await data.json();
 //     const photos = [];
 //     // imageData.results.map((img) => {
