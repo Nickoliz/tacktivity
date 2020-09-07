@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import ViewPhoto from './ViewPhoto';
 
 function SearchPhotos() {
+  const [tack, setTack ] = useState('');
   const photos = useSelector(state => state.photoReducer.photos)
-  const [singleImageId, setSingleImageId] = useState('');
+
 
   const handleClick = id => {
-    // id.preventDefault();
-    setSingleImageId(<ViewPhoto id={id} />)
+    setTack(<ViewPhoto id={id} />)
   }
 
   let listImages = [];
@@ -34,7 +34,7 @@ function SearchPhotos() {
       <div className='mosaic-container'>
         {listImages}
       </div>
-      {singleImageId}
+      {tack}
     </>
   )
 }

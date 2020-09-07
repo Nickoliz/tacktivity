@@ -2,10 +2,10 @@ import Cookies from 'js-cookie';
 
 const GET_TACK = 'api/tacks/:id';
 
-export const setPhoto = photo => {
+export const setPhoto = tackData => {
   return {
     type: GET_TACK,
-    photo
+    tackData
   }
 }
 
@@ -19,8 +19,7 @@ export const getTack = id => {
     });
     res.tackData = await res.json();
     if (res.ok) {
-      console.log(res.tackData);
-      dispatch(setPhoto(res.tackData));
+      dispatch(setPhoto(res.tackData.tackData));
     }
     return res;
   };
@@ -30,7 +29,7 @@ export default function photoReducer(state = {}, action) {
   Object.freeze(state);
   switch (action.type) {
     case GET_TACK:
-      return action.photo
+      return action.tackData
     default:
       return state;
   }

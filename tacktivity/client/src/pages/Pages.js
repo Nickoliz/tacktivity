@@ -10,7 +10,7 @@ export default function Pages() {
         <Route exact path='/' component={UnauthedHome}></Route>
         <Route path='/home' component={AuthedHome}></Route>
         <Route path='/search' component={AuthedHome}></Route>
-        {/* <Route path='/tack' component={AuthedHome}></Route> */}
+        <Route path='/create-tack' component={AuthedHome}></Route>
       </Switch>
     </>
   )
