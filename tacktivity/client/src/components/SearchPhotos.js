@@ -1,28 +1,21 @@
-import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
-import { getSinglePhoto } from '../store/tackReducer';
+import ViewPhoto from './ViewPhoto';
 
 function SearchPhotos() {
   const photos = useSelector(state => state.photoReducer.photos)
   const [singleImageId, setSingleImageId] = useState('');
-  const dispatch = useDispatch();
+
+  const handleClick = id => {
+    // id.preventDefault();
+    setSingleImageId(<ViewPhoto id={id} />)
+  }
 
   let listImages = [];
 
   for (let image in photos) {
     const img = photos[image];
-
-    // let imgDesc = img.description;
-    // if (img.description === null) {
-    //   imgDesc = img.description;
-    // } else if (img.description.length > 80) {
-    //   imgDesc = img.description.substring(0, 77) + "...";
-    // }
-
-    const handleClick = id => {
-      dispatch(getSinglePhoto(singleImageId))
-    }
 
     listImages.push(
       <>
@@ -41,9 +34,18 @@ function SearchPhotos() {
       <div className='mosaic-container'>
         {listImages}
       </div>
+      {singleImageId}
     </>
   )
 }
 
 
 export default SearchPhotos;
+
+// To use for desdcriptions if I want
+    // let imgDesc = img.description;
+    // if (img.description === null) {
+    //   imgDesc = img.description;
+    // } else if (img.description.length > 80) {
+    //   imgDesc = img.description.substring(0, 77) + "...";
+    // }

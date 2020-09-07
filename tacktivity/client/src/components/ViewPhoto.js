@@ -1,16 +1,17 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-function ViewPhoto() {
+import { getTack } from '../store/tackReducer';
 
+function ViewPhoto({ id }) {
+  const dispatch = useDispatch();
+  dispatch(getTack(id));
   const photo = useSelector(state => state.tackReducer.photo);
-
-  console.log(photo);
 
   return (
     <>
       <div>
-        <img />
+        {/* <img src={photo.urls.regular} key={id} alt={photo.alt_description}/> */}
       </div>
     </>
   )

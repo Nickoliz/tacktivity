@@ -9,7 +9,7 @@ export const setPhoto = photo => {
   }
 }
 
-export const getSinglePhoto = id => {
+export const getTack = id => {
   return async dispatch => {
     const res = await fetch(`/api/tacks/${id}`, {
       headers: {
@@ -17,9 +17,10 @@ export const getSinglePhoto = id => {
         "XSREF-TOKEN": Cookies.get("XSRF-TOKEN")
       }
     });
-    res.photo = await res.json();
+    res.tackData = await res.json();
     if (res.ok) {
-      dispatch(setPhoto(res.photo));
+      console.log(res.tackData);
+      dispatch(setPhoto(res.tackData));
     }
     return res;
   };

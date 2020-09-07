@@ -8,7 +8,6 @@ import Logout from './Logout';
 import SearchBar from './SearchBar';
 
 import { loadPhotos } from '../store/photoReducer';
-import SearchPhotos from './SearchPhotos';
 
 
 function Authed() {
