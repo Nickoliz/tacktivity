@@ -181,7 +181,8 @@ h3 {
   margin-top: 3px;
 }
 
-.fas {
+.fas,
+.fab {
   color: #3792cb;
 }
 

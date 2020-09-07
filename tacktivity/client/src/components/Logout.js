@@ -11,6 +11,7 @@ function Logout({ hideModal }) {
 
   const logoutUser = () => {
     dispatch(logout());
+    window.location.reload();
   }
 
   if (!currentUserId) return <Redirect to="/" />

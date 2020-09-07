@@ -1,13 +1,13 @@
 import React from 'react';
 
 import Authed from '../components/Authed';
-import Photos from '../components/Photos';
+import SearchPhotos from '../components/SearchPhotos';
 
 function AuthedHome() {
   return (
     <>
       <Authed />
-      <Photos />
+      <SearchPhotos />
     </>
   )
 }

@@ -28,25 +28,3 @@ function SearchBar() {
 }
 
 export default SearchBar;
-
-  // THIS WORKS!
-  // const imgs = [];
-  // const onSearch = async (e) => {
-  //   e.preventDefault();
-  //   const res = await fetch(`https://api.unsplash.com/search/photos?page=1&per_page=2&color=blue&query=${searchParam}&client_id=X2Dj56kaMcyuUuozi8CGMjBm40hHXweLsBuhUGnuwbc`, {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   })
-  //   if (res.ok) {
-  //     const data = await res.json();
-  //     data.results.map((img) => {
-  //       imgs.push(img);
-  //     })
-  //     console.log(imgs)
-  //     setImage(imgs);
-  //     setSearchParam('');
-  //   } else {
-  //     const badRequest = res.json();
-  //   }
-  // }

@@ -10,6 +10,7 @@ export default function Pages() {
       <Switch>
         <Route exact path='/' component={UnauthedHome}></Route>
         <Route path='/home' component={AuthedHome}></Route>
+        {/* <Route path='/search' component={PhotoSearch}></Route> */}
       </Switch>
     </>
   )

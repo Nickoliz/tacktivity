@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-function Photos() {
+function SearchPhotos() {
   const photos = useSelector(state => state.photoReducer.photos)
 
   let listImages = [];
@@ -9,12 +9,12 @@ function Photos() {
   for (let image in photos) {
     const img = photos[image];
 
-    let imgDesc = img.description;
-    if (img.description === null) {
-      imgDesc = img.description;
-    } else if (img.description.length > 80) {
-      imgDesc = img.description.substring(0, 77) + "...";
-    }
+    // let imgDesc = img.description;
+    // if (img.description === null) {
+    //   imgDesc = img.description;
+    // } else if (img.description.length > 80) {
+    //   imgDesc = img.description.substring(0, 77) + "...";
+    // }
 
 
 
@@ -40,7 +40,7 @@ function Photos() {
 
   return (
     <>
-      <div className='mosaic-container'>  {/*container*/}
+      <div className='mosaic-container'>
         {listImages}
       </div>
     </>
@@ -48,4 +48,4 @@ function Photos() {
 }
 
 
-export default Photos;
+export default SearchPhotos;
