@@ -32,36 +32,4 @@ router.get('/', asyncHandler(async function (req, res, next) {
 }));
 
 
-// ALL THIS BELOW WORKS
-//
-// async function testRun(term) {
-//   try {
-//     const data = await fetch(`https://api.unsplash.com/search/photos?page=1&per_page=2&query=${term}&client_id=INTPUT API FOR TESTING`);
-//     const imageData = await data.json();
-//     const photos = [];
-//     imageData.results.map((img) => {
-//       photos.push(img);
-//     })
-//     console.log(imageData);
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
-
-// async function testRun() {
-//   try {
-//     const data = await fetch(`https://api.unsplash.com/photos/fPKgvXNSNqg?&client_id=INSERT API FOR TESTING`);
-//     const imageData = await data.json();
-//     const photos = [];
-//     // imageData.results.map((img) => {
-//     //   photos.push(img);
-//     // })
-//     console.log(imageData);
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
-
-// testRun();
-
 module.exports = router;

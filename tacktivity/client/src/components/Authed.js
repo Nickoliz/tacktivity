@@ -9,13 +9,24 @@ import SearchBar from './SearchBar';
 
 import { loadPhotos } from '../store/photoReducer';
 
+// function Loading() {
+//   return (
+//     <>
+//       <div className='fas fa-spinner is-loading' />
+//       <div className='is-loading'>
+//         Loading fresh tacks...
+//       </div>
+//     </>
+//   )
+// }
 
 function Authed() {
   const [displayModal, setDisplayModal] = useState(null);
+  // const [isLoading, setIsLoading] = useState(false);
   const currentUserId = useSelector(state => state.auth.id);
   const dispatch = useDispatch();
 
-  window.addEventListener("DOMContentLoaded", e => {
+  window.addEventListener("DOMContentLoaded", async () => {
     dispatch(loadPhotos());
   })
 
@@ -36,10 +47,11 @@ function Authed() {
 
   return (
     <>
+      <div className='fas fa-plus fa-2x' />
       <div>
         <div className="container">
           <i className="fas fa-thumbtack fa-2x thumb-authed left-icon" />
-          <NavLink to='/home' style={{textDecoration: 'none'}} >
+          <NavLink to='/home' style={{ textDecoration: 'none' }} >
             <button className="home-button at-home left-icon" type='text' onClick={e => window.location.reload()}>Home</button>
           </NavLink>
           <SearchBar />
