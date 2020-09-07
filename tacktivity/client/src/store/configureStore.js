@@ -3,10 +3,12 @@ import thunk from 'redux-thunk';
 
 import auth from './auth';
 import photoReducer from './photoReducer';
+import tackReducer from './tackReducer';
 
 const rootReducer = combineReducers({
   auth,
-  photoReducer
+  photoReducer,
+  tackReducer
 });
 
 let storeEnhancer;

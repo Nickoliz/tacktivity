@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { getSinglePhoto } from '../store/photoReducer';
+import { getSinglePhoto } from '../store/tackReducer';
 
 function SearchPhotos() {
   const photos = useSelector(state => state.photoReducer.photos)

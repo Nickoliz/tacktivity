@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 function ViewPhoto() {
 
-  const photo = useSelector(state => state.photoReducer.photo);
+  const photo = useSelector(state => state.tackReducer.photo);
 
   console.log(photo);
 
