@@ -6,10 +6,9 @@ import '../css/authed.css'
 
 import Logout from './Logout';
 import SearchBar from './SearchBar';
-import CreateTack from './CreateTack';
+import CreateTackModal from './CreateTackModal';
 
 import { loadPhotos } from '../store/photoReducer';
-import CreateTackModal from './CreateTackModal';
 
 // function Loading() {
 //   return (
@@ -40,6 +39,7 @@ function Authed() {
       setDisplayModal(null);
     } else {
       setDisplayModal(<Logout hideModal={hideModal} />)
+      console.log(createTackModal)
     }
   }
 
@@ -58,11 +58,12 @@ function Authed() {
   return (
     <>
       <nav>
-        <div className='fas fa-plus fa-2x' />
-        {/* <div className='create-pin-modal' /> */}
         <div>
+          <div className='fas fa-plus fa-2x open' onClick={e => toggleCreateTackModal()} />
+          <div className={createTackModal ? 'show-plus-modal' : 'hide-plus-modal'} />
+          {createTackModal}
           <div className="container">
-            <i className="fas fa-thumbtack fa-2x thumb-authed left-icon" onClick={e => toggleCreateTackModal()} />
+            <i className="fas fa-thumbtack fa-2x thumb-authed left-icon" />
             <NavLink to='/home' style={{ textDecoration: 'none' }} >
               <button className="home-button at-home left-icon" type='text' onClick={e => window.location.reload()}>Home</button>
             </NavLink>
@@ -71,10 +72,8 @@ function Authed() {
             <i className='fab fa-github fa-2x right-icon' />
             <i className='fas fa-user-circle fa-2x right-icon' />
             <i className='fas fa-chevron-down right-icon' onClick={e => toggleOptionsModal()} />
-            <div className={displayModal ? 'show-chevron-modal' : 'hide-chevron-modal'}>
-            </div>
+            <div className={displayModal ? 'show-chevron-modal' : 'hide-chevron-modal'} />
             {displayModal}
-            {createTackModal}
           </div>
         </div>
       </nav>

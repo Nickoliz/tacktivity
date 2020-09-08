@@ -7,7 +7,7 @@
 .fa-plus {
   height: 45px;
   width: 45px;
-  bottom: 20px;
+  bottom: 60px;
   right: 30px;
   z-index: 2000;
   position: fixed;
@@ -17,8 +17,6 @@
   border: 0;
   box-shadow: 4px rgba(51, 51, 51, 0.062);
   border-radius: 50%;
-  transition: all 85ms ease-out;
-
 }
 
 .fa-2x:active {
@@ -26,7 +24,7 @@
 }
 
 
-.fa-plus:hover {
+.open:hover {
   filter: brightness(85%)
 }
 
@@ -168,4 +166,85 @@
   padding-left: 8px;
   text-align: left;
   font-weight: bold;
+}
+
+
+/* CreateTackModal */
+
+.container-close {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.create-tack__modal-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 250px;
+  position: fixed;
+  min-height: 40px;
+  min-width: 180px;
+  border: 1px solid;
+  overflow: auto;
+  bottom: 52px;
+  margin: 0px;
+  margin-right: 90px;
+  padding: 0px;
+  right: 0;
+  color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.17) 0 0px 4px;
+  border-radius: 16px;
+}
+
+.create-tack__box {
+  box-sizing: border-box;
+  display: block;
+  padding: 0 8px;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+
+
+.create-tack--button {
+  cursor: pointer;
+  padding: 10px;
+  min-height: 34px;
+  position: relative;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 35px;
+}
+
+.create-tack--button:hover,
+.in-button:hover {
+  background-color: rgba(0, 0, 0, .06);
+  border-radius: 10px;
+}
+
+.hide-plus-modal {
+  display: none;
+}
+
+.show-plus-modal {
+  display: block;
+}
+
+.in-button {
+  height: 30px;
+  width: 30px;
+  bottom: 67px;
+  right: 300px;
+  position: fixed;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  box-shadow: none;
 }
