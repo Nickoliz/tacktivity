@@ -6,8 +6,10 @@ import '../css/authed.css'
 
 import Logout from './Logout';
 import SearchBar from './SearchBar';
+import CreateTack from './CreateTack';
 
 import { loadPhotos } from '../store/photoReducer';
+import CreateTackModal from './CreateTackModal';
 
 // function Loading() {
 //   return (
@@ -22,6 +24,7 @@ import { loadPhotos } from '../store/photoReducer';
 
 function Authed() {
   const [displayModal, setDisplayModal] = useState(null);
+  const [createTackModal, setCreateTackModal] = useState(null);
   // const [isLoading, setIsLoading] = useState(false);
   const currentUserId = useSelector(state => state.auth.id);
   const dispatch = useDispatch();
@@ -32,7 +35,7 @@ function Authed() {
 
   if (!currentUserId) return <Redirect to='/' />
 
-  const toggleModal = () => {
+  const toggleOptionsModal = () => {
     if (displayModal) {
       setDisplayModal(null);
     } else {
@@ -40,30 +43,41 @@ function Authed() {
     }
   }
 
+  const toggleCreateTackModal = () => {
+    if (createTackModal) {
+      setCreateTackModal(null);
+    } else {
+      setCreateTackModal(<CreateTackModal hideModal={hideModal} />)
+    }
+  }
+
   const hideModal = () => {
     setDisplayModal(null);
   }
 
-
   return (
     <>
-      <div className='fas fa-plus fa-2x' />
-      <div>
-        <div className="container">
-          <i className="fas fa-thumbtack fa-2x thumb-authed left-icon" />
-          <NavLink to='/home' style={{ textDecoration: 'none' }} >
-            <button className="home-button at-home left-icon" type='text' onClick={e => window.location.reload()}>Home</button>
-          </NavLink>
-          <SearchBar />
-          <i className='fas fa-bell fa-2x right-icon' />
-          <i className='fab fa-github fa-2x right-icon' />
-          <i className='fas fa-user-circle fa-2x right-icon' />
-          <i className='fas fa-chevron-down right-icon' onClick={e => toggleModal()} />
-          <div className={displayModal ? 'show-chevron-modal' : 'hide-chevron-modal'}>
+      <nav>
+        <div className='fas fa-plus fa-2x' />
+        {/* <div className='create-pin-modal' /> */}
+        <div>
+          <div className="container">
+            <i className="fas fa-thumbtack fa-2x thumb-authed left-icon" onClick={e => toggleCreateTackModal()} />
+            <NavLink to='/home' style={{ textDecoration: 'none' }} >
+              <button className="home-button at-home left-icon" type='text' onClick={e => window.location.reload()}>Home</button>
+            </NavLink>
+            <SearchBar />
+            <i className='fas fa-bell fa-2x right-icon' />
+            <i className='fab fa-github fa-2x right-icon' />
+            <i className='fas fa-user-circle fa-2x right-icon' />
+            <i className='fas fa-chevron-down right-icon' onClick={e => toggleOptionsModal()} />
+            <div className={displayModal ? 'show-chevron-modal' : 'hide-chevron-modal'}>
+            </div>
+            {displayModal}
+            {createTackModal}
           </div>
-          {displayModal}
         </div>
-      </div>
+      </nav>
     </>
   )
 }
