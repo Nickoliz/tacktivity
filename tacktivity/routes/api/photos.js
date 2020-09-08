@@ -1,7 +1,7 @@
 const fetch = require('node-fetch');
 // AWS S3
-const multer = requrie('multer');
-const aws = requrie('aws-sdk');
+const multer = require('multer');
+const aws = require('aws-sdk');
 const multerS3 = require('multer-s3');
 
 
