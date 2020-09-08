@@ -1,7 +1,17 @@
 const fetch = require('node-fetch');
+// AWS S3
+const multer = requrie('multer');
+const aws = requrie('aws-sdk');
+const multerS3 = require('multer-s3');
+
+
+const {
+  aws: { aws_secret, aws_id },
+} = require("../../config/index");
 const {
   unsplash: { secret },
 } = require("../../config/index");
+
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 
@@ -30,6 +40,7 @@ router.get('/', asyncHandler(async function (req, res, next) {
     console.warn(err);
   }
 }));
+
 
 
 module.exports = router;
