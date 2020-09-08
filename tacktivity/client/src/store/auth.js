@@ -3,6 +3,7 @@ import Cookies from 'js-cookie';
 
 const SET_USER = 'auth/SET_USER';
 const LOGOUT_USER = 'auth/LOGOUT_USER'
+const INVALID_CREDENTIALS = 'auth/INVALID_USER'
 
 export const setUser = user => {
   return {
@@ -15,6 +16,13 @@ export const logoutUser = user => {
   return {
     type: LOGOUT_USER,
     user
+  }
+}
+
+export const invalidLogin = invalid => {
+  return {
+    type: INVALID_CREDENTIALS,
+    invalid
   }
 }
 
@@ -32,7 +40,7 @@ export const login = (email, password) => {
     if (res.ok) {
       dispatch(setUser(res.data.user));
     }
-    return res;
+    return res.data;
   };
 };
 
@@ -75,6 +83,8 @@ export default function authReducer(state = {}, action) {
       return action.user;
     case LOGOUT_USER:
       return {};
+    case INVALID_CREDENTIALS:
+      return action.invalid
     default:
       return state;
   }
