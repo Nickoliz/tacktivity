@@ -21,6 +21,8 @@ import { loadPhotos } from '../store/photoReducer';
 //   )
 // }
 
+let homeToggle = 'at-home';
+
 function Authed() {
   const [displayModal, setDisplayModal] = useState(null);
   const [createTackModal, setCreateTackModal] = useState(null);
@@ -39,7 +41,6 @@ function Authed() {
       setDisplayModal(null);
     } else {
       setDisplayModal(<Logout hideModal={hideModal} />)
-      console.log(createTackModal)
     }
   }
 
@@ -65,7 +66,7 @@ function Authed() {
           <div className="container">
             <i className="fas fa-thumbtack fa-2x thumb-authed left-icon" />
             <NavLink to='/home' style={{ textDecoration: 'none' }} >
-              <button className="home-button at-home left-icon" type='text' onClick={e => window.location.reload()}>Home</button>
+              <button className='home-button left-icon' type='text' >Home</button>
             </NavLink>
             <SearchBar />
             <i className='fas fa-bell fa-2x right-icon' />
