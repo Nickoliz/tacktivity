@@ -3,7 +3,7 @@ import React from 'react';
 import Unauthed from '../components/Unauthed';
 import { colorPhotos } from '../store/photoReducer';
 import { useDispatch } from 'react-redux';
-import SearchPhotos from '../components/SearchPhotos';
+import UnauthMosaic from '../components/UnauthMosaic';
 
 function UnauthedHome() {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function UnauthedHome() {
   return (
     <>
       <Unauthed />
-      <SearchPhotos />
+      <UnauthMosaic />
     </>
   )
 }

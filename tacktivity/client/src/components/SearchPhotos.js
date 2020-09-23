@@ -19,7 +19,7 @@ function SearchPhotos() {
 
     listImages.push(
       <>
-        <div className='mosaic-box'>
+        <div key={img.id} className='mosaic-box mb-unauthed'>
           <img src={img.urls.small} key={img.id} alt={img.alt_description} onClick={e => handleClick(img.id)} />
           {/* <div className='image-title' key={img.links.self}>
             {imgDesc}
@@ -31,7 +31,7 @@ function SearchPhotos() {
 
   return (
     <>
-      <div className='mosaic-container'>
+      <div className='mosaic-container mc-unauthed'>
         {listImages}
       </div>
       {tack}
