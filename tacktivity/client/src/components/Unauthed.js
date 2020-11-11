@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import '../css/unauthed.css';
 import Login from './Login';
 import Signup from './Signup';
@@ -8,7 +8,6 @@ import Signup from './Signup';
 export default function Unauthed() {
   const [displayModal, setDisplayModal] = useState(null);
   const currentUserId = useSelector(state => state.auth.id);
-  if (currentUserId) return <Redirect to='/home' />
 
   const showModal = type => {
     if (type === 'login') {
@@ -21,6 +20,8 @@ export default function Unauthed() {
   const hideModal = () => {
     setDisplayModal(null);
   };
+
+  if (currentUserId) return <Redirect to='/home' />
 
   return (
     <>

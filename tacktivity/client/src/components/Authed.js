@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import '../css/authed.css';
-import '../css/createtack.css';
 
 import Logout from './Logout';
 import SearchBar from './SearchBar';
