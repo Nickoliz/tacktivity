@@ -41,6 +41,22 @@ export const loadPhotos = () => {
   };
 };
 
+export const colorPhotos = () => {
+  return async dispatch => {
+    const res = await fetch(`/api/photos/colors`, {
+      headers: {
+        "Content-Type": "application/json",
+        "XSRF-TOKEN": Cookies.get("XSRF-TOKEN"),
+      },
+    });
+    res.photos = await res.json();
+    if (res.ok) {
+      dispatch(setPhotos(res.photos));
+    }
+    return res;
+  };
+};
+
 export default function photoReducer(state = {}, action) {
   Object.freeze(state);
   switch (action.type) {

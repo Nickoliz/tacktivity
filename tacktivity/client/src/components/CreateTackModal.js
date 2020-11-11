@@ -10,7 +10,6 @@ const CreateTackModal = ({ hideModal }) => {
         <div className='create-tack__box'>
           <NavLink to='/create-tack' style={{ textDecoration: "none" }}>
             <div className='create-tack--button'>
-              <i className='fas fa-plus fa-2x in-button' />
               Create a Tack
             </div>
           </NavLink>

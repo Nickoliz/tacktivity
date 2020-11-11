@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import UnauthedHome from '../pages/UnauthedHome'
 import AuthedHome from '../pages/AuthedHome';
 import CreateTack from '../components/CreateTack';
-import SearchPhotos from '../components/SearchPhotos';
+// import SearchPhotos from '../components/SearchPhotos';
 
 export default function Pages() {
   return (

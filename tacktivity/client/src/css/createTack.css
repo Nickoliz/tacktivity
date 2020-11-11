@@ -1,0 +1,59 @@
+.container-close {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.create-tack__modal-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 150px;
+  position: fixed;
+  height: 45px;
+  min-height: 40px;
+  min-width: 150px;
+  border: 1px solid;
+  overflow: auto;
+  bottom: 60px;
+  margin: 0px;
+  margin-right: 90px;
+  right: 0;
+  color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.17) 0 0px 4px;
+  border-radius: 30px;
+}
+
+.create-tack__box {
+  display: block;
+  overflow: hidden;
+}
+
+
+.create-tack--button {
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.create-tack--button:hover {
+  background-color: rgba(0, 0, 0, .06);
+  border-radius: 10px;
+}
+
+.hide-plus-modal {
+  display: none;
+}
+
+.show-plus-modal {
+  display: block;
+}
