@@ -10,8 +10,8 @@ function SearchPhotos() {
 
     listImages.push(
       <>
-        <div key={img.id} className='mosaic-box mb-unauthed'>
-          <img src={img.urls.small} key={img.id} alt={img.alt_description} />
+        <div key={img.id} className='mosaic-box-unauthed'>
+          <img id='unauthed-mosaic' src={img.urls.small} key={img.id} alt={img.alt_description} />
         </div>
       </>
     );

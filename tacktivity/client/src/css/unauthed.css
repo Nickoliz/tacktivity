@@ -3,24 +3,22 @@
   position: fixed;
 }
 
- .mosaic-box {
-  column-span: unset;
+.mosaic-container .mosaic-box-unauthed img:hover {
+  cursor: auto;
+}
+
+.mosaic-container .mosaic-box-unauthed {
   z-index: 1;
   width: 100%;
   margin-bottom: 20px;
 }
 
-.mosaic-box img {
-  cursor: zoom-in;
+.mosaic-container .mosaic-box-unauthed img {
   width: 100%;
   border-radius: 24px;
 }
 
-.mosaic-container .mosaic-box img:hover {
-  cursor: inherit;
-}
-
-.container {
+.navbar-container {
   display: flex;
   top: 0;
   justify-content: space-between;
@@ -32,6 +30,7 @@
   height: 80px;
   align-items: center;
   width: 100%;
+  z-index: 1010;
 }
 
 .nav-space {

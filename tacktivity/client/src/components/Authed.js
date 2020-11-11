@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Redirect } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import '../css/authed.css'
+import '../css/authed.css';
+import '../css/createtack.css';
 
 import Logout from './Logout';
 import SearchBar from './SearchBar';
@@ -23,16 +24,16 @@ import { loadPhotos } from '../store/photoReducer';
 
 let homeToggle = 'at-home';
 
-function Authed() {
+export default function Authed() {
   const [displayModal, setDisplayModal] = useState(null);
   const [createTackModal, setCreateTackModal] = useState(null);
   // const [isLoading, setIsLoading] = useState(false);
   const currentUserId = useSelector(state => state.auth.id);
   const dispatch = useDispatch();
 
-  window.addEventListener("DOMContentLoaded", async () => {
-    dispatch(loadPhotos());
-  })
+  // window.addEventListener("DOMContentLoaded", async () => {
+  //   dispatch(loadPhotos());
+  // })
 
   if (!currentUserId) return <Redirect to='/' />
 
@@ -60,10 +61,10 @@ function Authed() {
     <>
       <nav>
         <div>
-          <div className='fas fa-plus fa-2x open' onClick={e => toggleCreateTackModal()} />
+          <div className='fas fa-plus fa-2x open' onClick={e => toggleCreateTackModal()}></div>
           <div className={createTackModal ? 'show-plus-modal' : 'hide-plus-modal'} />
           {createTackModal}
-          <div className="container">
+          <div className="navbar-container">
             <i className="fas fa-thumbtack fa-2x thumb-authed left-icon" />
             <NavLink to='/home' style={{ textDecoration: 'none' }} >
               <button className='home-button left-icon' type='text' >Home</button>
@@ -81,6 +82,3 @@ function Authed() {
     </>
   )
 }
-
-
-export default Authed;
