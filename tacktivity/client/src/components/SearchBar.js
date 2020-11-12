@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
-import { NavLink } from 'react-router-dom';
 
 import { getPhotos } from '../store/photoReducer';
 
@@ -16,8 +15,6 @@ function SearchBar() {
       setSearchParam('');
     }
   }
-
-
 
   return (
     <>

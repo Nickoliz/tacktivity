@@ -3,17 +3,17 @@
   position: fixed;
 }
 
-.mosaic-container .mosaic-box-unauthed img:hover {
+.mosaic-container .mb-unauthed img:hover {
   cursor: auto;
 }
 
-.mosaic-container .mosaic-box-unauthed {
+.mosaic-container .mb-unauthed {
   z-index: 1;
   width: 100%;
   margin-bottom: 20px;
 }
 
-.mosaic-container .mosaic-box-unauthed img {
+.mosaic-container .mb-unauthed img {
   width: 100%;
   border-radius: 24px;
 }

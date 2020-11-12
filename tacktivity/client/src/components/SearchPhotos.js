@@ -1,59 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import ViewPhoto from './ViewPhoto';
 
-function SearchPhotos() {
+export default function SearchPhotos() {
   const [tack, setTack] = useState('');
-  const [imgId, setImgId] = useState(null);
-  const photos = useSelector(state => state.photoReducer.photos)
+  const photos = useSelector(state => state.photoReducer.photos);
 
-
-  const handleClick = id => {
-    setTack(<ViewPhoto id={id} />)
-  }
 
   let listImages = [];
-
-  useEffect(() => {
-    for (let image in photos) {
-      const img = photos[image];
-      setImgId(img.id);
-    }
-  }, [photos]);
-
   for (let image in photos) {
-    const img = photos[image];
-
-    listImages.push(
-      <>
-        <div key={imgId} className='mosaic-box'>
-          <img src={img.urls.small} key={img.id} alt={img.alt_description} onClick={e => handleClick(img.id)} />
-          {/* <div className='image-title' key={img.links.self}>
-            {imgDesc}
-          </div> */}
-        </div>
-      </>
-    );
+    listImages.push(photos[image]);
   }
 
+  const handleClick = image => {
+    setTack(<ViewPhoto image={image} />)
+  }
   return (
     <>
-      <div key={imgId} className='mosaic-container mc-unauthed'>
-        {listImages}
+      <div className='mosaic-container mc-unauthed'>
+        {listImages.map((img, idx) =>
+          <div key={idx} className='mosaic-box'>
+            <>
+              <img src={img.urls.small} alt={img.alt_description} onClick={e => handleClick(img)} />
+              {/* <div className='image-title' key={img.links.self}>
+                <div>{img.description}</div>
+              </div> */}
+            </>
+          </div>
+        )}
       </div>
       {tack}
     </>
   )
 }
-
-
-export default SearchPhotos;
-
-// To use for desdcriptions if I want
-    // let imgDesc = img.description;
-    // if (img.description === null) {
-    //   imgDesc = img.description;
-    // } else if (img.description.length > 80) {
-    //   imgDesc = img.description.substring(0, 77) + "...";
-    // }

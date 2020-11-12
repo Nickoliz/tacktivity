@@ -1,17 +1,17 @@
 import React from 'react';
 import Authed from './Authed';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 
 function CreateTack() {
 
-  const currentUserId = useSelector(state => state.auth.id);
+  // const currentUserId = useSelector(state => state.auth.id);
 
-  const getBoards = (currentUserId) => {
+  // const getBoards = (currentUserId) => {
     // fetch user boards
     // loop through create an option list\
     // probably a separate component
-  }
+  // }
 
   return (
     <>

@@ -43,7 +43,6 @@ function randomTheme(arr) {
 }
 
 router.get('/colors', asyncHandler(async function (req, res, next) {
-  console.log("here")
   try {
     const data = await fetch(`https://api.unsplash.com/search/photos?page=1&per_page=50&query=${randomTheme(themes)}&color=${randomColor(colors)}&client_id=${secret}`);
     const imageData = await data.json();

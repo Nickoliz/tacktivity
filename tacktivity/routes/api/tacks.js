@@ -12,8 +12,6 @@ router.get('/:id', asyncHandler(async function (req, res, next) {
   try {
     const data = await fetch(`https://api.unsplash.com/photos/${id}?&client_id=${secret}`);
     const tackData = await data.json();
-    console.log(tackData);
-    console.log("GETTING SINGLE")
     return res.json({ tackData });
   } catch (err) {
     console.warn(err);
