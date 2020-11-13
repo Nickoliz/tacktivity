@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
-import ViewPhoto from './ViewPhoto';
+import Tack from '../pages/Tack';
 
 export default function SearchPhotos() {
   const [tack, setTack] = useState('');
@@ -14,20 +15,23 @@ export default function SearchPhotos() {
   }
 
   const handleClick = image => {
-    setTack(<ViewPhoto image={image} />)
+    setTack(<Tack image={image} />)
   }
+
   return (
     <>
       <div className='mosaic-container mc-unauthed'>
         {listImages.map((img, idx) =>
-          <div key={idx} className='mosaic-box'>
-            <>
-              <img src={img.urls.small} alt={img.alt_description} onClick={e => handleClick(img)} />
-              {/* <div className='image-title' key={img.links.self}>
+          <Link key={idx} to={`/tack/${img.id}`}>
+            <div className='mosaic-box'>
+              <>
+                <img src={img.urls.small} alt={img.alt_description} onClick={e => handleClick(img)} />
+                {/* <div className='image-title' key={img.links.self}>
                 <div>{img.description}</div>
               </div> */}
-            </>
-          </div>
+              </>
+            </div>
+          </Link>
         )}
       </div>
       {tack}

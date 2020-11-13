@@ -60,8 +60,8 @@ export default function Authed() {
           {createTackModal}
           <div className="navbar-container">
             <i className="fas fa-thumbtack fa-2x thumb-authed left-icon" />
-            <NavLink to='/home' style={{ textDecoration: 'none' }} >
-              <button className='home-button left-icon' type='text' >Home</button>
+            <NavLink to='/home' style={{ textDecoration: 'none' }}>
+              <button className='home-button left-icon' type='text'>Home</button>
             </NavLink>
             <SearchBar />
             <a href='https://www.linkedin.com/in/nicholaslitz' target='_blank' rel='noopener noreferrer'><i className='fa fa-linkedin fa-2x right-icon' style={{ color: '#3792cb', textDecoration: 'none' }} /></a>

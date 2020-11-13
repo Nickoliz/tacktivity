@@ -30,6 +30,20 @@ router.get('/search/:term', asyncHandler(async function (req, res, next) {
   }
 }));
 
+router.get('/photo/:id', asyncHandler(async function (req, res, next) {
+  try {
+    console.log("here")
+    const id = req.params.id;
+    console.log(id);
+    const data = await fetch(`https://api.unsplash.com/photos?id=${id}&client_id=${secret}`);
+    const imageData = await data.json();
+    const photo = imageData.results;
+    return res.json({ photo });
+  } catch (err) {
+    console.warn(err);
+  }
+}));
+
 const colors = ["blue", "orange", "purple", "green", "yellow", "red", "brown"]
 const themes = ["nature", "food", "friends"]
 
