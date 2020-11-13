@@ -33,10 +33,8 @@ router.get('/search/:term', asyncHandler(async function (req, res, next) {
 }));
 
 router.get('/photo/:id', asyncHandler(async function (req, res, next) {
-  console.log("here")
   try {
     const id = req.params.id;
-    console.log(id);
     const data = await fetch(`https://api.unsplash.com/photos/${id}?client_id=${secret}`);
     const photo = await data.json();
     return res.json({ photo });
