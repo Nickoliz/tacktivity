@@ -9,19 +9,27 @@ export default function Unauthed() {
   const [displayModal, setDisplayModal] = useState(null);
   const currentUserId = useSelector(state => state.auth.id);
 
+  const body = document.getElementById('body-id');
+
   const showModal = type => {
     if (type === 'login') {
+      body.classList.add('lock-scroll');
       setDisplayModal(<Login showModal={showModal} />);
     } else if (type === 'signup') {
+      body.classList.add('lock-scroll');
       setDisplayModal(<Signup showModal={showModal} />);
     }
   };
 
   const hideModal = () => {
+    body.classList.remove('lock-scroll');
     setDisplayModal(null);
   };
 
-  if (currentUserId) return <Redirect to='/home' />
+  if (currentUserId) {
+    body.classList.remove('lock-scroll');
+    return <Redirect to='/home' />
+  }
 
   return (
     <>
@@ -32,7 +40,7 @@ export default function Unauthed() {
             <p>Tacktivity</p>
           </span>
           <div className="nav-space"></div>
-          <a href='https://www.linkedin.com/in/nicholaslitz' target='_blank'rel='noopener noreferrer'><i className='fa fa-linkedin fa-2x right-icon' style={{ color: '#3792cb', textDecoration: 'none' }} /></a>
+          <a href='https://www.linkedin.com/in/nicholaslitz' target='_blank' rel='noopener noreferrer'><i className='fa fa-linkedin fa-2x right-icon' style={{ color: '#3792cb', textDecoration: 'none' }} /></a>
           <a href='https://angel.co/u/nick-litz' target="_blank" rel='noopener noreferrer'><i className='fa fa-angellist fa-2x right-icon' style={{ color: '#3792cb', textDecoration: 'none' }} /></a>
           <a href='https://www.github.com/nickoliz' target='_blank' rel='noopener noreferrer'><i className='fab fa-github fa-2x right-icon' style={{ textDecoration: 'none' }} /></a>
           <div className="nav-space"></div>

@@ -2,8 +2,9 @@
 import Cookies from 'js-cookie';
 
 const SET_USER = 'auth/SET_USER';
-const LOGOUT_USER = 'auth/LOGOUT_USER'
+const LOGOUT_USER = 'auth/LOGOUT_USER';;
 const INVALID_CREDENTIALS = 'auth/INVALID_USER'
+const LOGIN_ERROR = 'auth/LOGIN_ERROR';
 
 export const setUser = user => {
   return {
@@ -23,6 +24,13 @@ export const invalidLogin = invalid => {
   return {
     type: INVALID_CREDENTIALS,
     invalid
+  }
+}
+
+export const setLoginError = error => {
+  return {
+    type: LOGIN_ERROR,
+    error
   }
 }
 
@@ -84,7 +92,9 @@ export default function authReducer(state = {}, action) {
     case LOGOUT_USER:
       return {};
     case INVALID_CREDENTIALS:
-      return action.invalid
+      return action.invalid;
+    case LOGIN_ERROR:
+      return action.error;
     default:
       return state;
   }
