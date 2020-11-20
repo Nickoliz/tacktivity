@@ -6,7 +6,6 @@ import CreateTack from '../components/CreateTack';
 import Tack from './Tack';
 import Authed from '../components/Authed';
 import SearchHome from './SearchHome';
-// import SearchPhotos from '../components/SearchPhotos';
 
 export default function Pages() {
   return (

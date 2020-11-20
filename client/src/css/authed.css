@@ -4,6 +4,26 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+#loading-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100vw;
+}
+
+#loading-note {
+  color: #3792cb;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+#loading-spinner {
+  color: #3792cb;
+}
+
 .fa-plus {
   height: 45px;
   width: 45px;

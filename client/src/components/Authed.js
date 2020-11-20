@@ -8,27 +8,12 @@ import Logout from './Logout';
 import SearchBar from './SearchBar';
 import CreateTackModal from './CreateTackModal';
 
-// function Loading() {
-//   return (
-//     <>
-//       <div className='fas fa-spinner is-loading' />
-//       <div className='is-loading'>
-//         Loading fresh tacks...
-//       </div>
-//     </>
-//   )
-// }
-
 
 export default function Authed() {
   const [displayModal, setDisplayModal] = useState(null);
   const [createTackModal, setCreateTackModal] = useState(null);
-  // const [isLoading, setIsLoading] = useState(false);
   const currentUserId = useSelector(state => state.auth.id);
 
-  // window.addEventListener("DOMContentLoaded", async () => {
-  //   dispatch(loadPhotos());
-  // })
 
   if (!currentUserId) return <Redirect to='/' />
 
