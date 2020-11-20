@@ -5,11 +5,12 @@ import { getPhoto } from '../store/photoReducer';
 import '../css/tack.css';
 
 
-function ViewPhoto() {
+export default function ViewPhoto() {
+  const image = useSelector(state => state.photoReducer.photo);
   const dispatch = useDispatch();
   const photoId = useParams('id');
-  const image = useSelector(state => state.photoReducer.photo);
 
+  console.log(image);
 
   useEffect(() => {
     dispatch(getPhoto(photoId.id))
@@ -29,6 +30,3 @@ function ViewPhoto() {
 
 
 }
-
-
-export default ViewPhoto;
