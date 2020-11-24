@@ -9,10 +9,6 @@ export default function AuthedHome() {
 
   // BELOW IS CAUSING ADDITIONAL RENDER ON Tack.js
 
-  // useEffect(() => {
-  //   dispatch(clearPhotos());
-  // }, [dispatch])
-
   useEffect(() => {
     dispatch(clearPhotos());
     setTimeout(() => {
