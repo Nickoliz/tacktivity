@@ -1,8 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { colorPhotos } from '../store/photoReducer';
+
 
 export default function UnauthedMosaic() {
   const photos = useSelector(state => state.photoReducer.photos)
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(colorPhotos());
+  }, [dispatch])
 
   let listImages = [];
   for (let image in photos) {

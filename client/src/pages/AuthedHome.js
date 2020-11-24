@@ -13,23 +13,24 @@ export default function AuthedHome() {
   //   dispatch(clearPhotos());
   // }, [dispatch])
 
-  // setTimeout(() => {
-    (function () {
+  useEffect(() => {
+    dispatch(clearPhotos());
+    setTimeout(() => {
       dispatch(loadPhotos());
-      // setLoading(false);
-    })();
-  // }, 2000);
+      setLoading(false);
+    }, 2000);
+  }, [dispatch])
 
   return (
     <>
-      {/* {(loading) ?
+      {(loading) ?
         <div id='loading-div'>
           <div id='loading-note'>Loading Latest Photos...</div>
           <div className='fa fa-circle-notch fa-spin fa-8x' id='loading-spinner' />
         </div>
-        : */}
+        :
         <SearchPhotos />
-      {/* } */}
+      }
     </>
   )
 }

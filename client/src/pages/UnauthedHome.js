@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Unauthed from '../components/Unauthed';
-import { colorPhotos } from '../store/photoReducer';
-import { useDispatch } from 'react-redux';
 import UnauthMosaic from '../components/UnauthMosaic';
+import { clearPhotos } from '../store/photoReducer';
 
 function UnauthedHome() {
   const dispatch = useDispatch();
 
-  (function () {
-    dispatch(colorPhotos());
-  })();
+  useEffect(() => {
+    dispatch(clearPhotos());
+  }, [dispatch])
 
   return (
     <>
