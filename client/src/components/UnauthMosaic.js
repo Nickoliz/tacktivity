@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { colorPhotos } from '../store/photoReducer';
+import { clearPhotos, colorPhotos } from '../store/photoReducer';
 
 
 export default function UnauthedMosaic() {
