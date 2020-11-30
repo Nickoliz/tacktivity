@@ -4,7 +4,7 @@ import { colorPhotos } from '../store/photoReducer';
 
 
 export default function UnauthedMosaic() {
-  const photos = useSelector(state => state.photoReducer.colorPhotos)
+  const photos = useSelector(state => state.photoReducer.photos)
   const dispatch = useDispatch();
 
   useEffect(() => {

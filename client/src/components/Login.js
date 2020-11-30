@@ -55,7 +55,7 @@ function Login({ showModal, hideModal }) {
   }
 
 
-  if (currentUserId) return hideModal() && dispatch(clearPhotos()) && <Redirect to='/home' />
+  if (currentUserId) return hideModal() && dispatch(clearPhotos()) && <Redirect to='/home' />;
 
   return (
     <>
