@@ -10,8 +10,6 @@ export default function ViewPhoto() {
   const dispatch = useDispatch();
   const photoId = useParams('id');
 
-  console.log(image);
-
   useEffect(() => {
     dispatch(getPhoto(photoId.id))
   }, [dispatch, photoId])

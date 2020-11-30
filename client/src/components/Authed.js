@@ -34,6 +34,7 @@ export default function Authed() {
   }
 
   const hideModal = () => {
+    setCreateTackModal(null);
     setDisplayModal(null);
   }
 

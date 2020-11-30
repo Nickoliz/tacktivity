@@ -1,16 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import SearchPhotos from '../components/SearchPhotos';
 import { useDispatch } from 'react-redux';
-import { loadPhotos, clearPhotos } from '../store/photoReducer';
+import { loadPhotos } from '../store/photoReducer';
 
 export default function AuthedHome() {
   const [loading, setLoading] = useState(true)
   const dispatch = useDispatch();
 
-  // BELOW IS CAUSING ADDITIONAL RENDER ON Tack.js
-
   useEffect(() => {
-    dispatch(clearPhotos());
     setTimeout(() => {
       dispatch(loadPhotos());
       setLoading(false);

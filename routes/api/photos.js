@@ -44,14 +44,14 @@ router.get('/photo/:id', asyncHandler(async function (req, res, next) {
 }));
 
 const colors = ["blue", "orange", "purple", "green", "yellow", "red"]
-const themes = ["nature", "food", "friends"]
+const themes = ["food", "cars", "sports"]
 
 function randomColor(arr) {
   num = Math.floor(Math.random() * Math.floor(6))
   return arr[num]
 }
 function randomTheme(arr) {
-  num = Math.floor(Math.random() * Math.floor(2))
+  num = Math.floor(Math.random() * Math.floor(3))
   return arr[num]
 }
 
@@ -61,7 +61,7 @@ function randomPage(num) {
 
 router.get('/colors', asyncHandler(async function (req, res, next) {
   try {
-    const data = await fetch(`https://api.unsplash.com/search/photos?page=${randomPage(2)}&per_page=50&query=${randomTheme(themes)}&color=${randomColor(colors)}&client_id=${secret}`);
+    const data = await fetch(`https://api.unsplash.com/search/photos?page=1&per_page=50&query=${randomTheme(themes)}&color=${randomColor(colors)}&client_id=${secret}`);
     const imageData = await data.json();
     const photos = imageData.results;
     return res.json({ photos });
