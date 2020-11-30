@@ -2,12 +2,20 @@ import Cookies from 'js-cookie';
 
 const GET_PHOTOS = 'photos/GET_PHOTOS';
 const GET_PHOTO = 'photos/GET_PHOTO';
+const GET_COLOR_PHOTOS = 'photos/GET_COLOR_PHOTOS';
 const CLEAR_PHOTOS = 'photos/CLEAR_PHOTOS';
 
 export const setPhotos = photos => {
   return {
     type: GET_PHOTOS,
     photos
+  };
+}
+
+export const setColorPhotos = colorPhotos => {
+  return {
+    type: GET_COLOR_PHOTOS,
+    colorPhotos
   };
 }
 
@@ -88,7 +96,7 @@ export const colorPhotos = () => {
     });
     res.photos = await res.json();
     if (res.ok) {
-      dispatch(setPhotos(res.photos));
+      dispatch(setColorPhotos(res.photos));
     }
     return res;
   };
@@ -101,6 +109,8 @@ export default function photoReducer(state = {}, action) {
       return action.photos;
     case GET_PHOTO:
       return action.photo;
+    case GET_COLOR_PHOTOS:
+      return action.colorPhotos
     case CLEAR_PHOTOS:
       return {};
     default:

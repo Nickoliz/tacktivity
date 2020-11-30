@@ -169,6 +169,9 @@
   margin-left: 10px;
   margin-right: 10px;
   column-count: 6;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  -webkit-animation: fadein 2s;
 }
 
 .mosaic-container .mosaic-box {
