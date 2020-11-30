@@ -20,7 +20,7 @@ function Logout({ hideModal }) {
   return (
     <>
       <div onClick={hideModal} className='container-close' />
-      <div className='logout-container'>
+      <div onClick={hideModal} className='logout-container'>
         <div className='logout-container_box'>
           <p className='more-options'>More options</p>
           <div className='logout-container--button' onClick={e => logoutUser()}>Logout</div>
