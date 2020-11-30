@@ -6,7 +6,7 @@ const CreateTackModal = ({ hideModal }) => {
   return (
     <>
       <div onClick={hideModal} className='container-close' />
-      <div className='create-tack__modal-container'>
+      <div onClick={hideModal} className='create-tack__modal-container'>
         <div className='create-tack__box'>
           <NavLink to='/create-tack' style={{ textDecoration: "none" }}>
             <div className='create-tack--button'>

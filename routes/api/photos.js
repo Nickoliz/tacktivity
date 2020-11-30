@@ -43,16 +43,20 @@ router.get('/photo/:id', asyncHandler(async function (req, res, next) {
   }
 }));
 
-const colors = ["blue", "orange", "purple", "green", "yellow", "red", "brown"]
-const themes = ["nature", "food", "friends"]
+const colors = ["blue", "orange", "purple", "green", "yellow", "red"]
+const themes = ["food", "cars", "sports"]
 
 function randomColor(arr) {
   num = Math.floor(Math.random() * Math.floor(6))
   return arr[num]
 }
 function randomTheme(arr) {
-  num = Math.floor(Math.random() * Math.floor(2))
+  num = Math.floor(Math.random() * Math.floor(3))
   return arr[num]
+}
+
+function randomPage(num) {
+  return Math.floor(Math.random() * num) + 1;
 }
 
 router.get('/colors', asyncHandler(async function (req, res, next) {

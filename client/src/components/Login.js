@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { login } from '../store/auth';
 import { Redirect } from 'react-router-dom';
+import { clearPhotos } from '../store/photoReducer';
 
 let emailDiv = "login-input";
 let passwordDiv = "login-input";
@@ -54,7 +55,7 @@ function Login({ showModal, hideModal }) {
   }
 
 
-  if (currentUserId) return hideModal() && <Redirect to='/home' />
+  if (currentUserId) return hideModal() && dispatch(clearPhotos()) && <Redirect to='/home' />;
 
   return (
     <>
