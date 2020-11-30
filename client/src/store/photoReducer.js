@@ -2,6 +2,7 @@ import Cookies from 'js-cookie';
 
 const GET_PHOTOS = 'photos/GET_PHOTOS';
 const GET_PHOTO = 'photos/GET_PHOTO';
+const CLEAR_PHOTOS = 'photos/CLEAR_PHOTOS';
 
 export const setPhotos = photos => {
   return {
@@ -15,6 +16,18 @@ export const setPhoto = photo => {
     type: GET_PHOTO,
     photo: photo
   };
+}
+
+export const noPhotos = () => {
+  return {
+    type: CLEAR_PHOTOS,
+  }
+}
+
+export const clearPhotos = () => {
+  return async dispatch => {
+    dispatch(noPhotos())
+  }
 }
 
 export const getPhotos = term => {
@@ -88,6 +101,8 @@ export default function photoReducer(state = {}, action) {
       return action.photos;
     case GET_PHOTO:
       return action.photo;
+    case CLEAR_PHOTOS:
+      return {};
     default:
       return state;
   }

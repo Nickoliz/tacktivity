@@ -3,6 +3,7 @@ import '../css/logout.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { logout } from '../store/auth'
+import { clearPhotos } from '../store/photoReducer';
 
 function Logout({ hideModal }) {
   const currentUserId = useSelector(state => state.auth.id)
@@ -10,8 +11,8 @@ function Logout({ hideModal }) {
 
 
   const logoutUser = () => {
+    dispatch(clearPhotos());
     dispatch(logout());
-    window.location.reload();
   }
 
   if (!currentUserId) return <Redirect to="/" />
