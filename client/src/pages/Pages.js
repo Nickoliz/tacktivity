@@ -13,7 +13,7 @@ export default function Pages() {
       <Authed />
       <Switch>
         <Route exact path='/' component={UnauthedHome} />
-        <Route path='/home' component={AuthedHome} />
+        <Route exact path='/home' component={AuthedHome} />
         <Route path='/home/:term' component={SearchHome} />
         <Route path='/create-tack' component={CreateTack} />
         <Route path='/tack/:id' component={Tack} />
