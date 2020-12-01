@@ -20,15 +20,20 @@
   border-radius: 32px;
   background-color: #FFFFFF;
   box-shadow: 2px 2px 6px 2px rgba(0,0,0,.2);
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  -webkit-animation: fadein 1.5s;
 }
 
 .tack_image > img {
   border-radius: 20px;
   height: 500px;
   width: auto;
-  animation: fadein 2s;
-  -moz-animation: fadein 2s;
-  -webkit-animation: fadein 2s;
+}
+
+.tack_image > img:hover {
+  filter: brightness(80%);
+
 }
 
 .tack_container--right {
@@ -56,4 +61,28 @@ flex-direction: column;
 
 .tack_info{
   margin-left: 25px;
+}
+
+.tack_image-title {
+  font-size: 20px;
+  font-weight: bold;
+  width: 350px;
+  padding: 15px;
+}
+
+.tack_image-user-info {
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.tack_image-user-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50px;
+}
+
+.tack_image-user-name {
+  margin-left: 5px;
 }

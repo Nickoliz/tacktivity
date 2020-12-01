@@ -32,9 +32,14 @@ export default function ViewPhoto() {
               <div className='create-tack__board-modal' />
               <button type='text' className='create-tack__board modal-select'>Save</button>
             </div>
-            <div className='tack_info tack_image-title'>Check One</div>
-            <div className='tack_info'>Check Two</div>
-            <div className='tack_info'>Check One, Two</div>
+            <div className='tack_info tack_image-title'>{image.alt_description}</div>
+            <div className='tack_info tack_image-user-info'>
+              <img className='tack_info tack_image-user-image' src={image.user.profile_image.medium} />
+              <div className='tack_info tack_image-user-name'>
+                {image.user.first_name} {image.user.last_name}
+                {image.links.html}
+              </div>
+            </div>
           </div>
         </div>
       </div>
