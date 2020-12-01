@@ -37,7 +37,7 @@ export default function ViewPhoto() {
               <img className='tack_info tack_image-user-image' src={image.user.profile_image.medium} />
               <div className='tack_info tack_image-user-name'>
                 {image.user.first_name} {image.user.last_name}
-                {image.links.html}
+                {/* {image.links.html} */}
               </div>
             </div>
           </div>
