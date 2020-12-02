@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { getPhotos } from '../store/photoReducer';
+import { clearPhotos, getPhotos } from '../store/photoReducer';
 
 function SearchBar() {
   const [searchParam, setSearchParam] = useState('');
