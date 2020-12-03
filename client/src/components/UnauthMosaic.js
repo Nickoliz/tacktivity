@@ -4,8 +4,9 @@ import { colorPhotos } from '../store/photoReducer';
 
 
 export default function UnauthedMosaic() {
-  const photos = useSelector(state => state.photoReducer.photos)
+  const photos = useSelector(state => state.photoReducer.colorPhotos)
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     dispatch(colorPhotos());
@@ -15,6 +16,8 @@ export default function UnauthedMosaic() {
   for (let image in photos) {
     listImages.push(photos[image]);
   }
+
+  console.log(photos)
 
   if (!photos) return null;
 
