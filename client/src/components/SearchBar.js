@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { clearPhotos, getPhotos } from '../store/photoReducer';
+import { getPhotos } from '../store/photoReducer';
 
-function SearchBar() {
+export default function SearchBar() {
   const [searchParam, setSearchParam] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
@@ -28,5 +28,3 @@ function SearchBar() {
     </>
   )
 }
-
-export default SearchBar;
