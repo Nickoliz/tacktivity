@@ -13,16 +13,13 @@ export default function Unauthed() {
 
   const showModal = type => {
     if (type === 'login') {
-      body.classList.add('lock-scroll');
       setDisplayModal(<Login showModal={showModal} />);
     } else if (type === 'signup') {
-      body.classList.add('lock-scroll');
       setDisplayModal(<Signup showModal={showModal} />);
     }
   };
 
   const hideModal = () => {
-    body.classList.remove('lock-scroll');
     setDisplayModal(null);
   };
 

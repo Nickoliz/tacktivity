@@ -8,8 +8,8 @@ export default function AuthedHome() {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    dispatch(loadPhotos());
     setTimeout(() => {
-      dispatch(loadPhotos());
       setLoading(false);
     }, 2000);
   }, [dispatch])

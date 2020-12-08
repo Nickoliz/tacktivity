@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 
 import { getPhotos } from '../store/photoReducer';
 
-function SearchBar() {
+export default function SearchBar() {
   const [searchParam, setSearchParam] = useState('');
   const dispatch = useDispatch();
   const history = useHistory();
@@ -28,5 +28,3 @@ function SearchBar() {
     </>
   )
 }
-
-export default SearchBar;
