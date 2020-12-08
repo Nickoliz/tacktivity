@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import '../css/authed.css';
@@ -54,7 +54,9 @@ export default function Authed() {
             <a href='https://www.linkedin.com/in/nicholaslitz' target='_blank' rel='noopener noreferrer'><i className='fa fa-linkedin fa-2x right-icon' style={{ color: '#3792cb', textDecoration: 'none' }} /></a>
             <a href='https://angel.co/u/nick-litz' target="_blank" rel='noopener noreferrer'><i className='fa fa-angellist fa-2x right-icon' style={{ color: '#3792cb', textDecoration: 'none' }} /></a>
             <a href='https://www.github.com/nickoliz' target='_blank' rel='noopener noreferrer'><i className='fab fa-github fa-2x right-icon' style={{ textDecoration: 'none' }} /></a>
-            <i className='fas fa-user-circle fa-2x right-icon' />
+            <Link to={`/dashboard/${currentUserId}`}>
+              <i className='fas fa-user-circle fa-2x right-icon' />
+            </Link>
             <i className='fas fa-chevron-down right-icon' onClick={e => toggleOptionsModal()} />
             <div className={displayModal ? 'show-chevron-modal' : 'hide-chevron-modal'} />
             {displayModal}

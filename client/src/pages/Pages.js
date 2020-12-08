@@ -6,6 +6,8 @@ import CreateTack from '../components/CreateTack';
 import Tack from './Tack';
 import Authed from '../components/Authed';
 import SearchHome from './SearchHome';
+import UserDashboard from './UserDashboard';
+
 
 export default function Pages() {
   return (
@@ -17,6 +19,7 @@ export default function Pages() {
         <Route path='/home/:term' component={SearchHome} />
         <Route path='/create-tack' component={CreateTack} />
         <Route path='/tack/:id' component={Tack} />
+        <Route path='/dashboard/:id' component={UserDashboard} />
       </Switch>
     </>
   )
