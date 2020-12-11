@@ -17,8 +17,6 @@ export default function UnauthedMosaic() {
     listImages.push(photos[image]);
   }
 
-  console.log(photos)
-
   if (!photos) return null;
 
   return (

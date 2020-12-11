@@ -42,7 +42,7 @@ export default function Authed() {
     <>
       <nav>
         <div>
-          <div className='fas fa-plus fa-2x open' onClick={e => toggleCreateTackModal()}></div>
+          <div className='fas fa-plus fa-2x open fa-plus-fixed' onClick={e => toggleCreateTackModal()}></div>
           <div className={createTackModal ? 'show-plus-modal' : 'hide-plus-modal'} />
           {createTackModal}
           <div className="navbar-container">

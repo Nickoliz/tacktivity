@@ -31,9 +31,12 @@
   width: auto;
 }
 
-.tack_image > img:hover {
-  filter: brightness(80%);
-
+.image-text-overlay-inactive {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: transparent;
+  font-weight: bold;
 }
 
 .tack_container--right {

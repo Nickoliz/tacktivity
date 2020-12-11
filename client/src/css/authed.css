@@ -24,7 +24,7 @@
   color: #3792cb;
 }
 
-.fa-plus {
+.fa-plus-fixed {
   height: 45px;
   width: 45px;
   bottom: 60px;
@@ -41,6 +41,7 @@
 
 .fa-plus:active {
   transform: scale(.8);
+
 }
 
 

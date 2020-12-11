@@ -21,7 +21,7 @@ export default function ViewPhoto() {
       <div className='tack-background-color'>
         <div className='tack_container'>
           <div className='tack_image'>
-            <img src={image.urls.regular} alt={image.alt_description} />
+            <img className='tack_image' src={image.urls.regular} alt={image.alt_description} />
           </div>
           <div className='tack_container--right'>
             <div className='tack_top-nav'>
