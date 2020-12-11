@@ -1,0 +1,41 @@
+.user-information {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  gap: 5px;
+}
+
+#user-real-name {
+  font-size: 36px;
+  font-weight: bold;
+}
+
+#user-information_username {
+  font-size: 16px;
+}
+
+.board_navigation {
+  margin-top: 20px;
+  padding-right: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fa-plus-user {
+  height: 45px;
+  width: 45px;
+  bottom: 60px;
+  padding: 8px;
+  text-align: center;
+  cursor: pointer;
+  border: 0;
+  box-shadow: 4px rgba(51, 51, 51, 0.062);
+  border-radius: 50%;
+}
+
+.fa-plus-user:hover {
+  filter: brightness(85%)
+}
