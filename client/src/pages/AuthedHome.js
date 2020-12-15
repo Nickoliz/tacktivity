@@ -22,7 +22,7 @@ export default function AuthedHome() {
           <div className='fa fa-circle-notch fa-spin fa-8x' id='loading-spinner' />
         </div>
         :
-        <SearchPhotos />
+        <SearchPhotos divName={"mosaic-container"} />
       }
     </>
   )

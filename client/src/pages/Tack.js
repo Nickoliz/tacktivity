@@ -51,7 +51,7 @@ export default function ViewPhoto() {
       <div className='more-like-container'>
         More like this
         <div className='more-like_mosaic'>
-          <SearchPhotos />
+          <SearchPhotos divName={"tack-mosaic"} />
         </div>
       </div>
     </>
