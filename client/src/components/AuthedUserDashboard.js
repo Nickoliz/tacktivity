@@ -12,7 +12,7 @@ export default function UserDashboard() {
         <div id='user-photo'>
           {/* ONCE MODEL UPDATED - UPDATE HERE */}
           {(user.profilePic) ?
-            <img src={user.profilePic} alt='User Profile Picture' />
+            <img src={user.profilePic} alt='' />
             :
             <i className='fas fa-user-circle fa-10x' />
           }

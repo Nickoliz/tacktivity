@@ -14,11 +14,12 @@ export default function ViewPhoto() {
 
   useEffect(() => {
     dispatch(getPhoto(photoId.id));
-    // dispatch(collectionPhotos())
+    dispatch(collectionPhotos())
   }, [dispatch, photoId])
 
 
   if (!image) return null;
+
 
   return (
     <>
@@ -38,7 +39,7 @@ export default function ViewPhoto() {
             </div>
             <div className='tack_info tack_image-title'>{image.alt_description}</div>
             <div className='tack_info tack_image-user-info'>
-              <img className='tack_info tack_image-user-image' src={image.user.profile_image.medium} />
+              <img className='tack_info tack_image-user-image' alt={image.alt_description} src={image.user.profile_image.medium} />
               <div className='tack_info tack_image-user-name'>
                 {image.user.first_name} {image.user.last_name}
                 {/* {image.links.html} */}
@@ -47,12 +48,12 @@ export default function ViewPhoto() {
           </div>
         </div>
       </div>
-      {/* <div className='more-like-container'>
+      <div className='more-like-container'>
         More like this
         <div className='more-like_mosaic'>
           <SearchPhotos divName={"tack-mosaic"} />
         </div>
-      </div> */}
+      </div>
     </>
   )
 
