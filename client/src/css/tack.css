@@ -4,12 +4,11 @@
   justify-content: center;
   margin-top: 60px;
   width: 100vw;
-  height: 100vh;
-  background-color: #EFEFEF;
+  height: auto;
 }
 
 .tack_container {
-  position: absolute;
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -88,4 +87,51 @@ flex-direction: column;
 
 .tack_image-user-name {
   margin-left: 5px;
+}
+
+.more-like-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.tack-mosaic {
+  columns: 4;
+  /* -moz-column-count: 4; */
+  /* -webkit-column-count: 4; */
+  /* gap: 0; */
+  align-items: center;
+  animation: fadein 2s;
+  -moz-animation: fadein 2s;
+  -webkit-animation: fadein 2s;
+  margin-top: -240px;
+  transform: scale(.65)
+}
+
+@keyframes fadein {
+  from {opacity: 0; }
+  to {opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tack-mosaic .mosaic-box img {
+  cursor: zoom-in;
+  border-radius: 24px;
+}
+
+
+.tack-mosaic .mosaic-box img:hover {
+  filter: brightness(75%);
 }

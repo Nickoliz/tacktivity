@@ -5,7 +5,7 @@ export default function SearchHome() {
 
   return (
     <>
-      <SearchPhotos />
+      <SearchPhotos divName={'mosaic-container'} />
     </>
   )
 }

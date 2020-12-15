@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getPhoto } from '../store/photoReducer';
+import { getPhoto, collectionPhotos } from '../store/photoReducer';
+import SearchPhotos from '../components/SearchPhotos';
 import '../css/tack.css';
 
 
@@ -10,9 +11,12 @@ export default function ViewPhoto() {
   const dispatch = useDispatch();
   const photoId = useParams('id');
 
+
   useEffect(() => {
-    dispatch(getPhoto(photoId.id))
+    dispatch(getPhoto(photoId.id));
+    dispatch(collectionPhotos())
   }, [dispatch, photoId])
+
 
   if (!image) return null;
 
@@ -41,6 +45,12 @@ export default function ViewPhoto() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div className='more-like-container'>
+        More like this
+        <div className='more-like_mosaic'>
+          <SearchPhotos divName={"tack-mosaic"} />
         </div>
       </div>
     </>

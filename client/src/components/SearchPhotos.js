@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 
-export default function SearchPhotos() {
+export default function SearchPhotos({ divName }) {
   const photos = useSelector(state => state.photoReducer.photos);
 
 
@@ -12,10 +12,10 @@ export default function SearchPhotos() {
     listImages.push(photos[image]);
   }
 
-
   return (
     <>
-      <div className='mosaic-container mc-unauthed'>
+      <div className={divName}>
+        {/* <div className='mosaic-container mc-unauthed tack-mosaic'> */}
         {listImages.map((img, idx) =>
           <Link key={idx} to={`/tack/${img.id}`}>
             <div className='mosaic-box'>
