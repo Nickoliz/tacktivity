@@ -19,7 +19,6 @@ export default function ViewPhoto() {
 
 
   if (!image) return null;
-  console.log(image.related_collections.results[0].id)
 
   return (
     <>
