@@ -103,6 +103,22 @@ export const colorPhotos = () => {
   };
 };
 
+export const collectionPhotos = () => {
+  return async dispatch => {
+    const res = await fetch('/api/photos/collection', {
+      headers: {
+        "Content-Type": "application/json",
+        "XSRF-TOKEN": Cookies.get("XSFR-TOKEN"),
+      },
+    });
+    res.photos = await res.json();
+    if (res.ok) {
+      dispatch(setPhotos(res.photos));
+    }
+    return res;
+  }
+}
+
 export default function photoReducer(state = {}, action) {
   // Object.freeze(state);
   switch (action.type) {
@@ -110,9 +126,9 @@ export default function photoReducer(state = {}, action) {
       return action.colorPhotos;
     // return action.colorPhotos;
     case GET_PHOTOS:
-      return action.photos;
+      return {...state, ...action.photos};
     case GET_PHOTO:
-      return action.photo;
+      return {...state, ...action.photo};
     case CLEAR_PHOTOS:
       return {};
     default:

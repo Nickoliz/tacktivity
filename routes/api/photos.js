@@ -81,4 +81,16 @@ router.get('/', asyncHandler(async function (req, res, next) {
   }
 }));
 
+
+router.get('/collection', asyncHandler(async function (req, res, next) {
+  try {
+    const collectionId = req.params.id;
+    const data = await fetch(`https://api.unsplash.com/photos?collections=335471&client_id=${secret}`);
+    const photos = await data.json();
+    return res.json({ photos })
+  } catch (e) {
+    console.warn("Error", e);
+  }
+}))
+
 module.exports = router;

@@ -12,10 +12,9 @@ export default function SearchPhotos() {
     listImages.push(photos[image]);
   }
 
-
   return (
     <>
-      <div className='mosaic-container mc-unauthed'>
+      <div className='mosaic-container mc-unauthed tack-mosaic'>
         {listImages.map((img, idx) =>
           <Link key={idx} to={`/tack/${img.id}`}>
             <div className='mosaic-box'>
