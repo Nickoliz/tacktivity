@@ -14,7 +14,7 @@ export default function ViewPhoto() {
 
   useEffect(() => {
     dispatch(getPhoto(photoId.id));
-    dispatch(collectionPhotos())
+    // dispatch(collectionPhotos())
   }, [dispatch, photoId])
 
 
@@ -47,12 +47,12 @@ export default function ViewPhoto() {
           </div>
         </div>
       </div>
-      <div className='more-like-container'>
+      {/* <div className='more-like-container'>
         More like this
         <div className='more-like_mosaic'>
           <SearchPhotos divName={"tack-mosaic"} />
         </div>
-      </div>
+      </div> */}
     </>
   )
 
