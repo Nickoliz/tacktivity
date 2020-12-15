@@ -14,7 +14,7 @@ export default function UserDashboard() {
   return (
     <>
       <Authed />
-      {(currentUserId == paramId.id) ? // Loosely equals to avoid type issues
+      {(currentUserId === Number(paramId.id)) ? // Loosely equals to avoid type issues
         <AuthedUserDashboard />
         :
         <UnauthedUserDashboard />
