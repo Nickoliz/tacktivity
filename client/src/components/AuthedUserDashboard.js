@@ -5,6 +5,7 @@ import '../../src/css/userdashboard.css';
 export default function UserDashboard() {
   const user = useSelector(state => state.auth);
 
+  console.log(user.firstName)
 
   return (
     <>

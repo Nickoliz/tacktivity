@@ -10,7 +10,6 @@ export default function UserDashboard() {
   const currentUserId = useSelector(state => state.auth.id);
   const paramId = useParams('id');
 
-
   return (
     <>
       <Authed />
