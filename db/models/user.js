@@ -20,10 +20,6 @@ module.exports = (sequelize, DataTypes) => {
       lastName: {
         type: DataTypes.STRING,
       },
-      username: {
-        allowNull: true,
-        type: DataTypes.STRING
-      },
       age: {
         allowNull: true,
         type: DataTypes.STRING(2)
@@ -34,10 +30,6 @@ module.exports = (sequelize, DataTypes) => {
         validates: {
           len: [60, 60],
         },
-      },
-      profilePicture: {
-        allowNull: true,
-        type: DataTypes.STRING,
       },
     },
     {

@@ -23,14 +23,6 @@ module.exports = {
         allowNull: true,
         type: Sequelize.STRING(2)
       },
-      username: {
-        allowNull: true,
-        type: Sequelize.STRING(150)
-      },
-      profilePicture: {
-        allowNull: true,
-        type: Sequelize.STRING(200)
-      },
       hashedPassword: {
         allowNull: false,
         type: Sequelize.STRING(60).BINARY,
