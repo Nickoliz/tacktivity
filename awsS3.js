@@ -1,17 +1,22 @@
 const AWS = require("aws-sdk");
-// name of your bucket here
-const NAME_OF_BUCKET = "tacktivity";
+const TACKTIVITY = "aws-s3-express-react-demo";
 const multer = require('multer');
+
+const {
+  aws: { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY},
+} = require("./config/index");
 
 if (process.env.NODE_ENV !== "production") {
   AWS.config.loadFromPath("./credentials.json");
 }
-// else {
-//  make sure to set environment variables in production for:
-//  AWS_ACCESS_KEY_ID
+else {
+  AWS_ACCESS_KEY_ID,
+  AWS_SECRET_ACCESS_KEY
+ // make sure to set environment variables in production for:
+//  AWS_ACCESS_KEY_ID,
 //  AWS_SECRET_ACCESS_KEY
-//  and aws will automatically use those environment variables
-// }
+ //and aws will automatically use those environment variables
+}
 const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
 
 const singlePublicFileUpload = async (file) => {
@@ -20,7 +25,7 @@ const singlePublicFileUpload = async (file) => {
   // name of the file in your S3 bucket will be the date in ms plus the extension name
   const Key = new Date().getTime().toString() + path.extname(originalname);
   const uploadParams = {
-    Bucket: NAME_OF_BUCKET,
+    Bucket: TACKTIVITY,
     Key,
     Body: buffer,
     ACL: "public-read"
