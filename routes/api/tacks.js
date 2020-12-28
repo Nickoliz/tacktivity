@@ -28,6 +28,41 @@ AWS.config.update({
   region: "us-west-2"
 })
 
+// Multer-S3 config - streamlines readability
+const multerS3Config = multerS3({
+  s3: s3,
+  bucket: AWS_BUCKET_NAME,
+  metadata: function (req, file, cb) {
+    cb(null, {
+      fieldName: file.fieldname
+    });
+  },
+  key: function (req, file, cb) {
+    cb(null, Date.now.toString() + "-" + file.name);
+  }
+});
+
+
+// upload sets the Access Control List (ACL) values
+const upload = multer({
+  storage: multerS3Config,
+  fileFilter: fileFilter,
+  limits: {
+    fileSize: 1024 * 1024 * 5, //5MB
+  }
+});
+
+// fileFilter controls which files are allowed to be uploaded to bucket.
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  } else if (file.mimetype !== 'image/jpeg' || file.mimetype !== 'image/png') {
+    cb(null, false);
+  } else {
+    return cb(new Error("File type for upload is not accepted. Please upload JPEG or PNG."))
+  }
+};
+
 const singlePublicFileUpload = async (file, userId) => {
   const { originalname, mimetype, buffer } = await file;
   const path = require("path");
