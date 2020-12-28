@@ -4,7 +4,7 @@ const multer = require('multer');
 
 const {
   aws: { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY},
-} = require("./config/index");
+} = require("../../config/index");
 
 if (process.env.NODE_ENV !== "production") {
   AWS_ACCESS_KEY_ID,
