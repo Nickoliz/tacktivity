@@ -3,21 +3,19 @@ const TACKTIVITY = "aws-s3-express-react-demo";
 const multer = require('multer');
 
 const {
-  aws: { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY},
+  aws: { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_BUCKET_NAME},
 } = require("../../config/index");
 
 if (process.env.NODE_ENV !== "production") {
   AWS_ACCESS_KEY_ID,
-  AWS_SECRET_ACCESS_KEY
+  AWS_SECRET_ACCESS_KEY,
+  AWS_BUCKET_NAME
   // AWS.config.loadFromPath("./credentials.json");
 }
 else {
   AWS_ACCESS_KEY_ID,
-  AWS_SECRET_ACCESS_KEY
- // make sure to set environment variables in production for:
-//  AWS_ACCESS_KEY_ID,
-//  AWS_SECRET_ACCESS_KEY
- //and aws will automatically use those environment variables
+  AWS_SECRET_ACCESS_KEY,
+  AWS_BUCKET_NAME
 }
 const s3 = new AWS.S3({ apiVersion: "2006-03-01" });
 

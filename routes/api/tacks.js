@@ -12,7 +12,9 @@ const multerS3 = require('multer-s3');
 
 // Keys
 const {
-  aws: { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY },
+  aws: { AWS_ACCESS_KEY_ID,
+    AWS_SECRET_ACCESS_KEY,
+    AWS_BUCKET_NAME },
 } = require("../../config/index");
 
 const {
@@ -32,14 +34,14 @@ const singlePublicFileUpload = async (file, userId) => {
   // name of the file in your S3 bucket will be the date in ms plus the extension name
   const Key = 'users/' + userId + new Date().getTime().toString() + path.extname(originalname);
   const uploadParams = {
-    Bucket: "tacktivity",
+    Bucket: AWS_BUCKET_NAME,
     Key,
     Body: buffer,
     ACL: "public-read"
   };
   const result = await s3.upload(uploadParams).promise();
 
-  // save the name of the file in your bucket as the key in your database to retrieve for later
+  // Saves name of file in bucket as key in database for retrieval
   return result.Location;
 };
 
@@ -53,14 +55,15 @@ const singleMulterUpload = (nameOfKey) => multer({ storage: storage }).single(na
 
 // Post Tack
 router.post('/', singleMulterUpload("file"), async (req, res) => {
-  const tack = req.body;
+  const tackData = req.body;
   const description = req.body.description;
   const userId = req.body.id;
+  const title = req.body.title;
 
-  tack.url = await singlePublicFileUpload(req.file, userId);
-  const url = tack.url
-  const tack = await Tack.create({ url, description, userId })
-  return res.json({ photo });
+  tackData.url = await singlePublicFileUpload(req.file, userId);
+  const url = tackData.url
+  const tack = await Tack.create({ title, url, description, userId })
+  return res.json({ tack });
 })
 
 // Get Tacks
