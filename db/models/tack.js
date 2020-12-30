@@ -40,8 +40,6 @@ module.exports = (sequelize, DataTypes) => {
       userId
     });
     return await Tack.scope('currentTack').findByPk(tack.id);
-    // Above, line 42 might need to be below line
-    // return await Tack.scope('currentTack').find(tack.id);
   };
 
   return Tack;
