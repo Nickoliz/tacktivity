@@ -12,7 +12,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     url: {
       type: DataTypes.STRING,
-      allowNull: false
     },
     tackImage: {
       allowNull: false,
