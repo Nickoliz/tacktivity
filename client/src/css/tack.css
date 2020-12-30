@@ -3,7 +3,7 @@
   flex-direction: column wrap;
   justify-content: center;
   margin-top: 60px;
-  width: 100vw;
+  width: 100%;
   height: auto;
 }
 
@@ -95,35 +95,22 @@ flex-direction: column;
   align-items: center;
   font-size: 24px;
   font-weight: bold;
-  margin-top: 50px;
+  margin-top: 70px;
 }
 
 .tack-mosaic {
   columns: 4;
-  /* -moz-column-count: 4; */
-  /* -webkit-column-count: 4; */
-  /* gap: 0; */
   align-items: center;
-  animation: fadein 2s;
-  -moz-animation: fadein 2s;
-  -webkit-animation: fadein 2s;
+  animation: fadein 1.5s;
+  -moz-animation: fadein 1.5s;
+  -webkit-animation: fadein 1.5s;
   margin-top: -240px;
   transform: scale(.65)
 }
 
-@keyframes fadein {
-  from {opacity: 0; }
-  to {opacity: 1; }
-}
-
-@-moz-keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@-webkit-keyframes fadein {
-  from { opacity: 0; }
-  to { opacity: 1; }
+#more-like-text {
+  margin-bottom: 35px;
+  animation: fadein;
 }
 
 .tack-mosaic .mosaic-box img {

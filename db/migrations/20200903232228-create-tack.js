@@ -16,10 +16,10 @@ module.exports = {
         type: Sequelize.STRING(300)
       },
       url: {
-        allowNull: false,
         type: Sequelize.STRING,
       },
       tackImage: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       userId: {
