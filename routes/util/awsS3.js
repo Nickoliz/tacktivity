@@ -25,7 +25,7 @@ const singlePublicFileUpload = async (file) => {
   // name of the file in your S3 bucket will be the date in ms plus the extension name
   const Key = new Date().getTime().toString() + path.extname(originalname);
   const uploadParams = {
-    Bucket: TACKTIVITY,
+    Bucket: AWS_BUCKET_NAME,
     Key,
     Body: buffer,
     ACL: "public-read"

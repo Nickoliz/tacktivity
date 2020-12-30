@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 function CreateTack() {
 
-  const currentUserId = useSelector(state => state.auth.id);
+  // const currentUserId = useSelector(state => state.auth.id);
 
 
 
