@@ -3,3 +3,21 @@
 * {
   box-sizing: border-box;
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 8px;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar:corner-present {
+  display: none;
+}
+::-webkit-scrollbar-track {
+  background-color: #E1E1E1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3792cb;
+  border-radius: 10px;
+}

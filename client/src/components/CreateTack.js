@@ -21,6 +21,7 @@ function CreateTack() {
   }
 
   console.log(file)
+  console.log(imagePreview)
 
   return (
     <>
@@ -32,15 +33,29 @@ function CreateTack() {
           <button type='text' className='create-tack__board modal-select'>Save</button>
           <div className='create-tack__main'>
             <div className='upload-box'>
-              <input id='media-upload' type='file' onChange={e => setImage(e.target.files[0])} accept='image/jpeg,image/png' className="tack-box image-upload" />
-              <div className='fas fa-arrow-circle-up fa-2x' />
-              <div className='upload-text'>
-                {(imagePreview) ?
-                  null
-                  :
-                  <span style={{ backgroundColor: 'inherit' }}>Upload a photo</span>
-                }
-              </div>
+              {(imagePreview) ?
+                <>
+                  <div id='tack_image-preview'>
+                    {imagePreview}
+                  </div>
+                  <div>
+                    <label className="revise-image-button" for="revise-upload">Change Image</label>
+                    <input id="revise-upload" type='file' onChange={e => setImage(e.target.files[0])} accept='image/jpeg,image/png' />
+                  </div>
+                </>
+                :
+                <>
+                  <input title='Change Image' id='media-upload' type='file' onChange={e => setImage(e.target.files[0])} accept='image/jpeg,image/png' className="tack-box image-upload" />
+                  <div className='fas fa-arrow-circle-up fa-2x' />
+                  <div className='upload-text'>
+                    {(imagePreview) ?
+                      null
+                      :
+                      <span style={{ backgroundColor: 'inherit' }}>Upload a photo</span>
+                    }
+                  </div>
+                </>
+              }
             </div>
             <div className="tack-box__form">
               <form type='text' className='create-tack-form'>
