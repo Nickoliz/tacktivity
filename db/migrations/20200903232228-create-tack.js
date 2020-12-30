@@ -20,6 +20,7 @@ module.exports = {
         type: Sequelize.STRING,
       },
       tackImage: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       userId: {
