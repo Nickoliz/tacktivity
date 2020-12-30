@@ -132,12 +132,6 @@
   object-fit: cover;
 }
 
-/* #revise-upload {
-  border-radius: 12px;
-  outline: none;
-  border: none;
-} */
-
 .revise-image-button {
   display: inline-block;
   padding: 12px 18px;
@@ -150,7 +144,7 @@
   margin-top: 10px;
 }
 
-input[type="file"] {
+#revise-upload {
   position: absolute;
   z-index: -1;
   top: 10px;

@@ -19,7 +19,6 @@ function CreateTack() {
     setImagePreview(<img src={imageObj} alt=' ' />)
   }
 
-  console.log(imagePreview)
 
   return (
     <>
@@ -43,10 +42,14 @@ function CreateTack() {
                 </>
                 :
                 <>
-                  <input title='Change Image' id='media-upload' type='file' onChange={e => setImage(e.target.files[0])} accept='image/jpeg,image/png' className="tack-box image-upload" />
+                  <input id='media-upload' type='file' onChange={e => setImage(e.target.files[0])} accept='image/jpeg,image/png' className="tack-box image-upload" />
                   <div className='fas fa-arrow-circle-up fa-2x' />
                   <div className='upload-text'>
-                    <span style={{ backgroundColor: 'inherit' }}>Upload a photo</span>
+                    {(imagePreview) ?
+                      null
+                      :
+                      <span style={{ backgroundColor: 'inherit' }}>Upload a photo</span>
+                    }
                   </div>
                 </>
               }
