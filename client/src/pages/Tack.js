@@ -42,15 +42,19 @@ export default function ViewPhoto() {
               <img className='tack_info tack_image-user-image' alt={image.alt_description} src={image.user.profile_image.medium} />
               <div className='tack_info tack_image-user-name'>
                 {image.user.first_name} {image.user.last_name}
-                {/* {image.links.html} */}
+                {/* <div>
+                  <a href={image.links.html}>{image.links.html}</a>
+                </div> */}
               </div>
             </div>
           </div>
         </div>
       </div>
       <div className='more-like-container'>
-        More like this
-        <div className='more-like_mosaic'>
+        <div id='more-like-text'>
+          More like this
+        </div>
+        <div>
           <SearchPhotos divName={"tack-mosaic"} />
         </div>
       </div>
