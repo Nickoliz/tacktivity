@@ -25,7 +25,9 @@ function CreateTack() {
       <Authed />
       <div className="create-tack-container">
         <div className="create-tack-box">
-          <div className="tack-option-bar">Select</div>
+          <div className="tack-option-bar">Select
+            <i className="tack-option-caret fas fa-caret-down" />
+          </div>
           <div className='create-tack__board-modal' />
           <button type='text' className='create-tack__board modal-select'>Save</button>
           <div className='create-tack__main'>

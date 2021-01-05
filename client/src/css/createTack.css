@@ -30,6 +30,8 @@
 
 .tack-option-bar {
   box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
   height: 40px;
   width: 173.25px;
   text-align: left;
@@ -42,6 +44,12 @@
   border-bottom-left-radius: 8px;
   font-size: 16px;
 }
+
+.tack-option-caret {
+  background-color: #EFEFEF;
+  padding: 3px;
+}
+
 .modal-select {
   box-sizing: border-box;
   min-width: 65px;
@@ -130,6 +138,7 @@
   height: 454px;
   width: 340px;
   object-fit: cover;
+  border-radius: 6px;
 }
 
 .revise-image-button {
