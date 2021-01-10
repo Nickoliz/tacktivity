@@ -11,9 +11,10 @@ const multer = require('multer');
 const multerS3 = require('multer-s3');
 
 // Keys
-const aws_access_key = process.env.AWS_ACCESS_KEY_ID;
-const aws_secret_key = process.env.AWS_SECRET_ACCESS_KEY;
-const bucket_name = process.env.AWS_BUCKET_NAME;
+const {
+  aws: { AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AWS_BUCKET_NAME },
+} = require("../../config/index");
+
 
 const {
   unsplash: { secret },
@@ -21,15 +22,15 @@ const {
 
 // AWS Config
 AWS.config.update({
-  accessKeyId: aws_access_key,
-  secretAccessKey: aws_secret_key,
+  accessKeyId: AWS_ACCESS_KEY_ID,
+  secretAccessKey: AWS_SECRET_ACCESS_KEY,
   region: "us-west-2"
 })
 
 // Multer-S3 config - streamlines readability
 const multerS3Config = multerS3({
   s3: s3,
-  bucket: bucket_name,
+  bucket: AWS_BUCKET_NAME,
   metadata: function (req, file, cb) {
     cb(null, {
       fieldName: file.fieldname
@@ -67,7 +68,7 @@ const singlePublicFileUpload = async (file, userId) => {
   // name of the file in your S3 bucket will be the date in ms plus the extension name
   const Key = 'users/' + userId + new Date().getTime().toString() + path.extname(originalname);
   const uploadParams = {
-    Bucket: bucket_name,
+    Bucket: AWS_BUCKET_NAME,
     Key,
     Body: buffer,
     ACL: "public-read"
