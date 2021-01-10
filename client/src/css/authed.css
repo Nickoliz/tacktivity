@@ -166,10 +166,12 @@
 
 .mosaic-container {
   position: inherit;
+  column-count: auto;
+  column-width: 305px;
+  border-spacing: 0;
   margin-top: 80px;
   margin-left: 10px;
   margin-right: 10px;
-  column-count: 6;
   animation: fadein 2s;
   -moz-animation: fadein 2s;
   -webkit-animation: fadein 2s;
