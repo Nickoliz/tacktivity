@@ -54,9 +54,7 @@ export default function ViewPhoto() {
         <div id='more-like-text'>
           More like this
         </div>
-        <div>
-          <SearchPhotos divName={"tack-mosaic"} />
-        </div>
+        <SearchPhotos divName={"tack-mosaic"} />
       </div>
     </>
   )
