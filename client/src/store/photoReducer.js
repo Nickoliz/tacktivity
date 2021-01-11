@@ -105,7 +105,7 @@ export const colorPhotos = () => {
 
 export const collectionPhotos = () => {
   return async dispatch => {
-    const res = await fetch('/api/photos/collection', {
+    const res = await fetch(`/api/photos/collection`, {
       headers: {
         "Content-Type": "application/json",
         "XSRF-TOKEN": Cookies.get("XSFR-TOKEN"),

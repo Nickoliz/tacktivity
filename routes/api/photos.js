@@ -47,6 +47,10 @@ function randomPage(num) {
   return Math.floor(Math.random() * num) + 1;
 }
 
+function randomPageOver5(num) {
+  return Math.floor(Math.random() * num) + 5;
+}
+
 router.get('/colors', asyncHandler(async function (req, res, next) {
   try {
     const data = await fetch(`https://api.unsplash.com/search/photos?page=1&per_page=50&query=${randomTheme(themes)}&color=${randomColor(colors)}&client_id=${secret}`);
@@ -72,8 +76,7 @@ router.get('/', asyncHandler(async function (req, res, next) {
 
 router.get('/collection', asyncHandler(async function (req, res, next) {
   try {
-    // const collectionId = req.params.id;
-    const data = await fetch(`https://api.unsplash.com/photos?collections=335471&client_id=${secret}`);
+    const data = await fetch(`https://api.unsplash.com/photos?page=${randomPageOver5(5)}&per_page=12&client_id=${secret}`);
     const photos = await data.json();
     return res.json({ photos })
   } catch (e) {
