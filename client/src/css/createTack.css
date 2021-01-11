@@ -135,6 +135,7 @@
 
 
 #tack_image-preview > img {
+  border-radius: 20px;
   height: 454px;
   width: 340px;
   /* object-fit: cover; */
