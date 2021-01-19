@@ -110,7 +110,6 @@ flex-direction: column;
 
 #more-like-text {
   animation: fadein;
-  margin-bottom: -50px;
 }
 
 .tack-mosaic .mosaic-box img {

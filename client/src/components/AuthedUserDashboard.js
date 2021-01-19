@@ -1,11 +1,18 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getBoards } from '../store/boardReducer';
 import '../../src/css/userdashboard.css';
 
 export default function UserDashboard() {
   const user = useSelector(state => state.auth);
+  const boards = useSelector(state => state.boards);
+  const dispatch = useDispatch();
 
-  console.log(user.firstName)
+  useEffect(() => {
+    dispatch(getBoards(user.id));
+  })
+
+  console.log(boards);
 
   return (
     <>
@@ -20,13 +27,6 @@ export default function UserDashboard() {
         </div>
         <div id='user-real-name'>
           {user.firstName} {user.lastName}
-        </div>
-        <div id='user-information_username'>
-          {(user.username) ?
-            <div>@{user.username}</div>
-            :
-            null
-          }
         </div>
       </div>
       <div className='board_navigation'>

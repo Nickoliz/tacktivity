@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 import auth from './auth';
 import photoReducer from './photoReducer';
 import tackReducer from './tackReducer';
+import boardReducer from './boardReducer';
 
 const rootReducer = combineReducers({
   auth,
   photoReducer,
-  tackReducer
+  tackReducer,
+  boardReducer
 });
 
 let storeEnhancer;

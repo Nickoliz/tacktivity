@@ -13,7 +13,6 @@
 
 .mosaic-container .mb-unauthed {
   z-index: 1;
-  /* width: 100%; */
   min-width: 305px;
   margin-bottom: 20px;
   animation: fadein 2s;

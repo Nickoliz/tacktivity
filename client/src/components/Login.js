@@ -28,7 +28,7 @@ function Login({ showModal, hideModal }) {
     setNoInfo('');
     setNoUser('');
     if (email && password) {
-      dispatch(clearPhotos());
+      // dispatch(clearPhotos());
       dispatch(login(email.toLocaleLowerCase(), password));
       if (!currentUserId) {
         setNoUser('Incorrect email or password. Please try again.')
