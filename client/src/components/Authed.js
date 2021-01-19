@@ -43,8 +43,9 @@ export default function Authed() {
       <nav>
         <div>
           <div className='fas fa-plus fa-2x open fa-plus-fixed' onClick={e => toggleCreateTackModal()}></div>
-          <div className={createTackModal ? 'show-plus-modal' : 'hide-plus-modal'} />
-          {createTackModal}
+          <div className={createTackModal ? 'show-plus-modal' : 'hide-plus-modal'}>
+            {createTackModal}
+          </div>
           <div className="navbar-container">
             <i className="fas fa-thumbtack fa-2x thumb-authed left-icon" />
             <NavLink to='/home' style={{ textDecoration: 'none' }}>

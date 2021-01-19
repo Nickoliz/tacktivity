@@ -163,7 +163,7 @@
 
 /* Mosaic Gallery Container */
 
-.mosaic-container {
+.mosaic-container:not(.create-tack__modal-container) {
   position: inherit;
   column-count: auto;
   column-width: 303.33px;
@@ -238,6 +238,7 @@
 
 
 .create-tack--button {
+  position: absolute;
   cursor: pointer;
   padding: 2.5px;
   height: 30px;
@@ -246,6 +247,7 @@
   font-size: 16px;
   font-weight: bold;
   text-align: center;
+  z-index: 5001;
 }
 
 .create-tack--button:hover,
